@@ -1,0 +1,78 @@
+﻿<Window x:Class="Windows.Views.Play_Quiz"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Windows.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Play_Quiz" Height="550" Width="800" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="29*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>-->
+
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,455.5" Background="#FF8C00">
+            <Button  x:Name="btnPauseQuiz"  Background="Transparent" Height="Auto" Margin="0,10" Width="68">
+                <Button.Content>
+                    <Image Source="../Images/pause_btn.png" />
+                </Button.Content>
+            </Button>
+        </StackPanel>
+
+        <Border Background="#bada55" Margin="10,102,10,10" CornerRadius="5" Width="779" Grid.RowSpan="2">
+            <StackPanel>
+                <!--<TextBox x:Name="boxQuestion" Background="Transparent" materialDesign:HintAssist.Hint="Here Question: "/>-->
+                <!--<TextBox x:Name="boxTrueFalse" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Here Question: "/>-->
+                <TextBox x:Name="boxTrueFalse" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Enter Question: " Height="69"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="699,0,0,0">
+                    <Button x:Name="btnSkipQuest" Content="SKIP" Width="77" Height="27" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,577,0"  >
+                    <RadioButton Content="True" Height="55" Width="48" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <RadioButton Content="False" Height="19" Width="48" />
+                </StackPanel>
+
+
+
+                <!-- Sequence >-->
+
+                <StackPanel Margin="35" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Label Content="1:" Width="45" Height="26" />
+                    <TextBox x:Name="boxSequence1" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />
+                    <Label Content="2:" Width="45" Height="26"/>
+                    <TextBox x:Name="boxSequence2" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />
+                    <Label Content="3:" Width="45" Height="26"/>
+                    <TextBox x:Name="boxSequence3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>
+                    <Label Content="4:" Width="45" Height="26" />
+                    <TextBox x:Name="boxSequence4" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>
+                </StackPanel>
+
+                <StackPanel Margin="35" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <RadioButton Content="1" Width="70" Height="26" />
+                    <!--<TextBox x:Name="boxVariant1" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />-->
+                    <RadioButton Content="2" Width="70" Height="26"/>
+                    <!--<TextBox x:Name="boxVariant2" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />-->
+                    <RadioButton Content="3" Width="71" Height="26"/>
+                    <!--<TextBox x:Name="boxVariant3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>-->
+                    <RadioButton Content="4" Width="71" Height="26" />
+                    <!--<TextBox x:Name="boxVariant4" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>-->
+                </StackPanel>
+
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                    <Button x:Name="btnCreateQuizOk" Margin="15,10" Content="OK!" FontSize="16" Width="194" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Window>
