@@ -6,13 +6,20 @@
     <edmx:StorageModels>
     <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="Model1StoreContainer">
-    <EntitySet Name="Users" EntityType="Model1.Store.Users" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Roles" EntityType="Model1.Store.Roles" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="StatusUser" Association="Model1.Store.StatusUser">
-      <End Role="Status" EntitySet="Roles" />
+    <EntitySet Name="Users" EntityType="Model1.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="RoleUser" Association="Model1.Store.RoleUser">
+      <End Role="Role" EntitySet="Roles" />
       <End Role="User" EntitySet="Users" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="Id" />
@@ -25,18 +32,11 @@
     <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
     <Property Name="RoleId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Roles">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <Association Name="StatusUser">
-    <End Role="Status" Type="Model1.Store.Roles" Multiplicity="1" />
+  <Association Name="RoleUser">
+    <End Role="Role" Type="Model1.Store.Roles" Multiplicity="1" />
     <End Role="User" Type="Model1.Store.Users" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Status">
+      <Principal Role="Role">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="User">
@@ -49,10 +49,10 @@
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Users" EntityType="Model1.User" />
           <EntitySet Name="Roles" EntityType="Model1.Role" />
-          <AssociationSet Name="StatusUser" Association="Model1.StatusUser">
-            <End Role="Status" EntitySet="Roles" />
+          <EntitySet Name="Users" EntityType="Model1.User" />
+          <AssociationSet Name="RoleUser" Association="Model1.RoleUser">
+            <End Role="Role" EntitySet="Roles" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
@@ -67,7 +67,7 @@
           <Property Name="Password" Type="String" Nullable="false" />
           <Property Name="RegistrationDate" Type="DateTime" Nullable="false" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Status" Relationship="Model1.StatusUser" FromRole="User" ToRole="Status" />
+          <NavigationProperty Name="Role" Relationship="Model1.RoleUser" FromRole="User" ToRole="Role" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -75,13 +75,13 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Model1.StatusUser" FromRole="Status" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="Model1.RoleUser" FromRole="Role" ToRole="User" />
         </EntityType>
-        <Association Name="StatusUser">
-          <End Type="Model1.Role" Role="Status" Multiplicity="1" />
+        <Association Name="RoleUser">
+          <End Type="Model1.Role" Role="Role" Multiplicity="1" />
           <End Type="Model1.User" Role="User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Status">
+            <Principal Role="Role">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="User">
@@ -95,6 +95,14 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Role)">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="IsTypeOf(Model1.User)">
         <MappingFragment StoreEntitySet="Users">
@@ -105,14 +113,6 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Roles">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Role)">
-        <MappingFragment StoreEntitySet="Roles">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

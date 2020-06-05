@@ -64,12 +64,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\ItemMenu.cs" />
+    <Compile Include="ViewModels\SubItem.cs" />
+    <Compile Include="Views\Create_Quiz.xaml.cs">
+      <DependentUpon>Create_Quiz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Menu_Main.xaml.cs">
+      <DependentUpon>Menu_Main.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NewPassword.xaml.cs">
       <DependentUpon>NewPassword.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Restore_Password.xaml.cs">
-      <DependentUpon>Restore_Password.xaml</DependentUpon>
+    <Compile Include="Views\Forgot_Password.xaml.cs">
+      <DependentUpon>Forgot_Password.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Play_Quiz.xaml.cs">
+      <DependentUpon>Play_Quiz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControlChats1.xaml.cs">
+      <DependentUpon>UserControlChats1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControlMenuItem.xaml.cs">
+      <DependentUpon>UserControlMenuItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControlPlayQuizezz.xaml.cs">
+      <DependentUpon>UserControlPlayQuizezz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControlProviders.xaml.cs">
+      <DependentUpon>UserControlProviders.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\Create_Quiz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Login_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,11 +116,35 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Menu_Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\NewPassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Restore_Password.xaml">
+    <Page Include="Views\Forgot_Password.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Play_Quiz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControlChats1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControlMenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControlPlayQuizezz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControlProviders.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,7 +177,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\" />
+    <Resource Include="Images\pause_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\brain_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\brain_logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
+      <Project>{66cb6cd3-040e-4e6c-adb1-8965ed1a36ec}</Project>
+      <Name>ClassLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.1.2\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.2\build\MaterialDesignThemes.targets')" />
