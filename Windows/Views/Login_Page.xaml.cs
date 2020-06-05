@@ -36,18 +36,5 @@ namespace Windows.Views
             this.Hide();
             rest_pass.ShowDialog();
         }
-
-        private void BtnSignUp_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void loginUserBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Menu_Main menu_Main = new Menu_Main();
-            menu_Main.Owner = this;
-            this.Hide();
-            menu_Main.ShowDialog();
-        }
     }
 }
