@@ -15,39 +15,31 @@ using System.Windows.Shapes;
 namespace Windows.Views
 {
     /// <summary>
-    /// Interaction logic for Login_Page.xaml
+    /// Interaction logic for Restore_Password.xaml
     /// </summary>
-    public partial class Login_Page : Window
+    public partial class Restore_Password : Window
     {
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
             Application.Current.Shutdown();
         }
-        public Login_Page()
+        public Restore_Password()
         {
             InitializeComponent();
         }
 
-        private void ForgotPasswordBtn_Click(object sender, RoutedEventArgs e)
+        private void btnChangePass_Click(object sender, RoutedEventArgs e)
         {
-            Restore_Password rest_pass = new Restore_Password();
-            rest_pass.Owner = this;
+            Login_Page lg = new Login_Page();
+            lg.Owner = this;
             this.Hide();
-            rest_pass.ShowDialog();
+            lg.ShowDialog();
         }
 
-        private void BtnSignUp_Click(object sender, RoutedEventArgs e)
+        private void BtnSendEmail_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void loginUserBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Menu_Main menu_Main = new Menu_Main();
-            menu_Main.Owner = this;
-            this.Hide();
-            menu_Main.ShowDialog();
+            
         }
     }
 }

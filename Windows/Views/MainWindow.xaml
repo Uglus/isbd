@@ -6,30 +6,30 @@
         xmlns:local="clr-namespace:Windows"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="MainWindow" Height="800" Width="1200" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="600" Width="980" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid Background="#192060">
 
-        <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Label Content="User Sign Up"  FontSize="45" Foreground="White" BorderBrush="White" Margin="442,66,431,659" Width="295" />
-        </StackPanel>-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label Content="User Sign Up"  FontSize="45" Foreground="White" BorderBrush="White" Margin="442,69,431,452" Width="295" />
+        </StackPanel>
 
 
-        <StackPanel Orientation="Horizontal">
-            <Border Background="white"  CornerRadius="5" Height="686" Width="882" Margin="100,54,0,52">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Border Background="white"  Margin="10,151,10,10" CornerRadius="5" Width="879" >
                 <StackPanel   Margin="25">
-                    <TextBox x:Name="UserNameTextBox" Margin="198,15,212,15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Username" Width="422"/>
-                    <TextBox x:Name="FirsNameTextBox" Margin="60,15,471,15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="First Name" Width="301"/>
+                    <TextBox x:Name="UserNameTextBox" Margin="198,15,252,15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Username" Width="422"/>
+                    <TextBox x:Name="FirsNameTextBox" Margin="15,15,427,15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="First Name" Width="301"/>
                     <TextBox x:Name="LastNameTextBox" Margin="386,0,0,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Last Name" Height="54" Width="340" />
                     <TextBox x:Name="EmailTexBox" Margin="10,0,427,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Email" Width="298" />
-                    <TextBox x:Name="PasswordTexBox" Margin="391,0,10,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Password" Width="332" />
+                    <PasswordBox x:Name="PasswordTexBox" Margin="391,0,10,0" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="Password" Width="332" />
 
                     <!--<WrapPanel Height="65" Margin="0,0,475,0" >-->
-                    <CheckBox Content="You agree to the BrainDuel Terms of Service and Policy." HorizontalAlignment="Left" Height="89" />
+                    <CheckBox Content="You agree to the BrainDuel Terms of Service and Policy." HorizontalAlignment="Left" Height="60" Margin="58,0,0,0" Width="254" />
+                    <!--</WrapPanel>-->
 
                     <!--<WrapPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="280,10,281,10" Height="211">-->
-                    <Button x:Name="LoginBtn" Click="LoginBtn_Click" Content="Login" Margin="0,10,0,171" Width="178" Height="45"  />
                     <!--<WrapPanel Orientation="Vertical" HorizontalAlignment="Right" Height="43" Width="83" Margin="0,0,450,0">-->
-                    <Button x:Name="SignUpBtn" Content="Sign Up" Click="SignUpBtn_Click" Height="37" Width="241" Margin="250,0" />
+                    <Button x:Name="SignUpBtn" Content="Sign Up" Click="SignUpBtn_Click" FontSize="16" Height="36" Width="241" Margin="296,0,295,0" />
                     <!--</WrapPanel>-->
 
                 </StackPanel>
