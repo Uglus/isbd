@@ -26,11 +26,8 @@
                 </ComboBox>
 
                 <TextBox x:Name="boxTrueFalse" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Enter Question: "/>
-                <StackPanel Orientation="Horizontal" Margin="0,0,577,0"  >
+                <StackPanel Orientation="Vertical" Margin="0,0,577,0"  >
                     <RadioButton Content="True" Height="55" Width="48" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <RadioButton Content="False" Height="19" Width="48" />
                 </StackPanel>
 
@@ -38,13 +35,13 @@
 
                 <StackPanel Margin="10,35,0,35" Orientation="Horizontal" HorizontalAlignment="Left" Width="710">
                     <Label Content="1:" Width="45" Height="26" />
-                    <TextBox x:Name="boxSequence1" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="130" />
+                    <TextBox x:Name="boxSequence1"  Height="30" Width="130" />
                     <Label Content="2:" Width="45" Height="26"/>
-                    <TextBox x:Name="boxSequence2" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="130" />
+                    <TextBox x:Name="boxSequence2" Height="30" Width="130" />
                     <Label Content="3:" Width="45" Height="26"/>
-                    <TextBox x:Name="boxSequence3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="130"/>
+                    <TextBox x:Name="boxSequence3" Height="30" Width="130"/>
                     <Label Content="4:" Width="45" Height="26" />
-                    <TextBox x:Name="boxSequence4" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="130"/>
+                    <TextBox x:Name="boxSequence4" Height="30" Width="130"/>
 
                     
 
