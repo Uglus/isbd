@@ -49,5 +49,10 @@ namespace Windows.Views
             this.Hide();
             menu_Main.ShowDialog();
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

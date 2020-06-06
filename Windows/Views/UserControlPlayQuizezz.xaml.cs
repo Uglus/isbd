@@ -24,5 +24,11 @@ namespace Windows.Views
         {
             InitializeComponent();
         }
+
+        private void btnJoinToSession_Click(object sender, RoutedEventArgs e)
+        {
+            Lobby lobby = new Lobby();
+            lobby.ShowDialog();
+        }
     }
 }

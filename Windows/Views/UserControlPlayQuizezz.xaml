@@ -7,21 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="150" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <!--<Border Height="450" Width="800" Margin="5"  Grid.Column="0" Background="#FF9A90A6" VerticalAlignment="Stretch" CornerRadius="20">-->
-        <ListView x:Name="viewPlayQuizezz" Background="Aqua" Height="450" Width="800">
-            <!--<Label Content="tut" Grid.Column="2" />-->
-        </ListView>
-        <!--</Border>-->
+        <Border Height="450" Width="800" Margin="5"   Background="#FF9A90A6"  CornerRadius="20">
+            <StackPanel Orientation="Horizontal">
+                <ListView x:Name="viewPlayQuizezz" Background="Aqua" Height="450" Width="800">
+                    <Button x:Name="btnJoinToSession" Click="btnJoinToSession_Click" Content="Join" Height="67" Width="237" />
+                </ListView>
+            </StackPanel>
+
+        </Border>
         <!--<Border Margin="5"  Grid.Column="1" Background="#FFB25454" VerticalAlignment="Stretch" CornerRadius="20">
 
         </Border>

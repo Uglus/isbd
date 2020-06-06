@@ -65,8 +65,14 @@
     </ApplicationDefinition>
     <Compile Include="ViewModels\ItemMenu.cs" />
     <Compile Include="ViewModels\SubItem.cs" />
+    <Compile Include="Views\Chat.xaml.cs">
+      <DependentUpon>Chat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Create_Quiz.xaml.cs">
       <DependentUpon>Create_Quiz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Lobby.xaml.cs">
+      <DependentUpon>Lobby.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Menu_Main.xaml.cs">
       <DependentUpon>Menu_Main.xaml</DependentUpon>
@@ -92,7 +98,15 @@
     <Compile Include="Views\UserControlProviders.xaml.cs">
       <DependentUpon>UserControlProviders.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Chat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Create_Quiz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Lobby.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -6,11 +6,13 @@
         xmlns:local="clr-namespace:Windows.Views"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Create_Quiz" Height="630" Width="800" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Create_Quiz" Height="630" Width="800" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+        MouseDown="Window_MouseDown">
     <Grid>
 
         <StackPanel Orientation="Horizontal" Margin="0,0,0,555" Background="#FF8C00">
             <TextBox x:Name="boxScore" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Score: " Width="192" FontSize="18"/>
+            <Button x:Name="btnFormCancel" Content="cancel" FontSize="16" Click="btnFormCancel_Click" Margin="0,22,0,21" Width="94"/>
         </StackPanel>
 
         <!--<StackPanel Margin="50,10">-->
@@ -34,15 +36,18 @@
 
                 <!-- Sequence >-->
 
-                <StackPanel Margin="35" Orientation="Horizontal" HorizontalAlignment="Left">
+                <StackPanel Margin="10,35,0,35" Orientation="Horizontal" HorizontalAlignment="Left" Width="710">
                     <Label Content="1:" Width="45" Height="26" />
-                    <TextBox x:Name="boxSequence1" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />
+                    <TextBox x:Name="boxSequence1" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="130" />
                     <Label Content="2:" Width="45" Height="26"/>
-                    <TextBox x:Name="boxSequence2" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />
+                    <TextBox x:Name="boxSequence2" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="130" />
                     <Label Content="3:" Width="45" Height="26"/>
-                    <TextBox x:Name="boxSequence3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>
+                    <TextBox x:Name="boxSequence3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="130"/>
                     <Label Content="4:" Width="45" Height="26" />
-                    <TextBox x:Name="boxSequence4" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>
+                    <TextBox x:Name="boxSequence4" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="130"/>
+
+                    
+
                 </StackPanel>
 
                 <StackPanel Margin="35" Orientation="Horizontal" HorizontalAlignment="Left">

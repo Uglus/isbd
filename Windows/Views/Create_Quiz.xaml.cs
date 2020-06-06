@@ -29,5 +29,18 @@ namespace Windows.Views
         {
             InitializeComponent();
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void btnFormCancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

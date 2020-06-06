@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Grid.ColumnDefinitions>
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -16,8 +16,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
             <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Border Margin="5"  Grid.Column="0" Background="White" VerticalAlignment="Stretch" CornerRadius="20">
+        </Grid.RowDefinitions>-->
+        <Border Margin="5"  Grid.Column="0" Background="Black" VerticalAlignment="Stretch" CornerRadius="20">
 
         </Border>
         <Border Margin="5"  Grid.Column="1" Background="White" VerticalAlignment="Stretch" CornerRadius="20">
@@ -26,7 +26,7 @@
         <Border Margin="5"  Grid.Column="2" Background="White" VerticalAlignment="Stretch" CornerRadius="20">
 
         </Border>
-        <Border Margin="5"  Grid.Column="3" Background="White" VerticalAlignment="Stretch" CornerRadius="20">
+        <Border Margin="5"  Grid.Column="3" Background="Black" VerticalAlignment="Stretch" CornerRadius="20">
 
         </Border>
     </Grid>
