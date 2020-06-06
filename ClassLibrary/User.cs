@@ -16,6 +16,8 @@ namespace ClassLibrary
         public string Password { get; set; }
         public DateTime RegistrationDate { get; set; }
         public int RoleId { get; set; }
+        public int StatusId { get; set; } = 2;
+        public int ActivateLink { get; set; }
 
         public string FuncName { get; set; } = "";//Для визначення сервером, яку функцію юзати
 
@@ -28,10 +30,12 @@ namespace ClassLibrary
             Password = "";
             RegistrationDate = DateTime.MinValue;
             RoleId = 1;
+            StatusId = 2;
+            ActivateLink = 0;
             FuncName = "";
         }
 
-        public User(int id, string name, string login,string email,string passw,DateTime regDate, int roleId, string funcName = "")
+        public User(int id, string name, string login,string email,string passw,DateTime regDate, int roleId, int statusId = 2, string funcName = "")
         {
             Id = id;
             Name = name;
@@ -41,6 +45,7 @@ namespace ClassLibrary
             RegistrationDate = regDate;
             RoleId = roleId;
             FuncName = funcName;
+            StatusId = statusId;
         }
     }
 }

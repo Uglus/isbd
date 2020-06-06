@@ -71,11 +71,22 @@ namespace Server
                             if(user.FuncName == "UserEdit")
                             {
                                 dm.UserEdit(user);
+                                Console.WriteLine($"UserEdit: {user.Login} - {user.Password}");
                             }
                             if(user.FuncName == "UserSignIn")
                             {
-                                bool result = dm.UserSignIn(user);
-                                bf.Serialize(ns, result);
+                                user = dm.UserSignIn(user);
+                                bf.Serialize(ns, user);
+                            }
+                            if(user.FuncName == "UserFind")
+                            {
+                                user = dm.UserFind(user);
+                                bf.Serialize(ns, user);
+                            }
+                            if(user.FuncName == "SendActivateLink")
+                            {
+                                user = dm.SendActivateLink(user);
+                                bf.Serialize(ns, user);
                             }
                         }
 
