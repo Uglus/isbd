@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using System.Configuration;
 using System.Data.SqlClient;
+//using System.Data.EntityClient;
 using System.Linq;
 using System.Data;
 
@@ -15,6 +16,7 @@ namespace Server
     {
         string connectionString ;
         protected SqlConnection connection;
+       // protected Ent
 
         public DbProvider()
         {

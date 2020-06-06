@@ -4,10 +4,75 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c4e542c3c0234db5b1a317afee47cb97" Name="Diagram1" ZoomLevel="112" >
-        <EntityTypeShape EntityType="Model1.User" Width="1.5" PointX="4.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.Role" Width="1.5" PointX="7.5" PointY="1.625" />
-        <AssociationConnector Association="Model1.StatusUser" />
+      <Diagram DiagramId="c4e542c3c0234db5b1a317afee47cb97" Name="Diagram1" ZoomLevel="85" >
+        <EntityTypeShape EntityType="Model1.User" Width="1.5" PointX="14" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.UserRole" Width="1.25" PointX="16.375" PointY="12.125" />
+        <AssociationConnector Association="Model1.RoleUser" ManuallyRouted="false" >
+          <ConnectorPoint PointX="6.4401120283705247" PointY="5.3753531901041649" />
+          <ConnectorPoint PointX="5.9075486458333328" PointY="5.375353190104164" />
+          <ConnectorPoint PointX="5.7408819791666668" PointY="5.3753531901041649" />
+          <ConnectorPoint PointX="5.4192689583333333" PointY="5.375353190104164" />
+          <ConnectorPoint PointX="5.2526022916666673" PointY="5.3753531901041649" />
+          <ConnectorPoint PointX="4.8234207106293407" PointY="5.3753531901041649" />
+          <ConnectorPoint PointX="4.8234207106293407" PointY="5.1436979166666648" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model1.UserStatus" Width="1.25" PointX="15" PointY="12.25" />
+        <AssociationConnector Association="Model1.UserStatusUser" ></AssociationConnector>
+        <EntityTypeShape EntityType="Model1.UserFriends" Width="1.5" PointX="16.375" PointY="8.75" />
+        <AssociationConnector Association="Model1.UserFriendsUser" />
+        <AssociationConnector Association="Model1.UserFriendsUser1" />
+        <EntityTypeShape EntityType="Model1.UserToChat" Width="1.5" PointX="16.375" PointY="3.625" />
+        <AssociationConnector Association="Model1.UserToChatUser" />
+        <EntityTypeShape EntityType="Model1.Chat" Width="1.5" PointX="18.25" PointY="5" />
+        <AssociationConnector Association="Model1.ChatUserToChat" />
+        <EntityTypeShape EntityType="Model1.ChatMessage" Width="1.5" PointX="16.375" PointY="6.125" />
+        <AssociationConnector Association="Model1.ChatChatMessage" />
+        <AssociationConnector Association="Model1.ChatMessageUser" />
+        <EntityTypeShape EntityType="Model1.QuizApproved" Width="1.5" PointX="11.5" PointY="5.125" />
+        <EntityTypeShape EntityType="Model1.UserQuizResp" Width="1.5" PointX="11.5" PointY="7.75" />
+        <EntityTypeShape EntityType="Model1.Quiz" Width="1.5" PointX="8.875" PointY="5.875" />
+        <EntityTypeShape EntityType="Model1.QuizStatus" Width="1.25" PointX="6.625" PointY="8.25" />
+        <EntityTypeShape EntityType="Model1.QuizToCategory" Width="1.5" PointX="6.625" PointY="5.375" />
+        <EntityTypeShape EntityType="Model1.QuizCaetgory" Width="1.5" PointX="6.625" PointY="3.25" />
+        <AssociationConnector Association="Model1.UserQuizApproved" />
+        <AssociationConnector Association="Model1.QuizQuizApproved" />
+        <AssociationConnector Association="Model1.QuizUserQuizResp" />
+        <AssociationConnector Association="Model1.UserUserQuizResp" />
+        <AssociationConnector Association="Model1.UserQuiz" />
+        <AssociationConnector Association="Model1.QuizStatusQuiz" />
+        <AssociationConnector Association="Model1.QuizCaetgoryQuizToCategory" />
+        <AssociationConnector Association="Model1.QuizQuizToCategory" />
+        <EntityTypeShape EntityType="Model1.Achievement" Width="1.5" PointX="9.25" PointY="2" />
+        <EntityTypeShape EntityType="Model1.UserToAchievement" Width="1.5" PointX="11.5" PointY="2" />
+        <AssociationConnector Association="Model1.AchievementUserToAchievement" />
+        <AssociationConnector Association="Model1.UserUserToAchievement" />
+        <EntityTypeShape EntityType="Model1.Question" Width="1.5" PointX="6.5" PointY="13.625" />
+        <EntityTypeShape EntityType="Model1.QuestionType" Width="1.5" PointX="4" PointY="15" />
+        <AssociationConnector Association="Model1.QuestionTypeQuestion" />
+        <AssociationConnector Association="Model1.QuizQuestion" />
+        <EntityTypeShape EntityType="Model1.SequenceTrue" Width="1.5" PointX="8.75" PointY="13.625" />
+        <EntityTypeShape EntityType="Model1.BoolTrue" Width="1.5" PointX="8.75" PointY="16.5" />
+        <EntityTypeShape EntityType="Model1.DefaultTrue" Width="1.5" PointX="8.75" PointY="18.875" />
+        <EntityTypeShape EntityType="Model1.Session" Width="1.5" PointX="11.25" PointY="10.625" />
+        <EntityTypeShape EntityType="Model1.SessionStatus" Width="1" PointX="9.625" PointY="10.625" />
+        <AssociationConnector Association="Model1.SessionStatusSession" />
+        <AssociationConnector Association="Model1.SessionQuiz" />
+        <EntityTypeShape EntityType="Model1.UserToSession" Width="1.5" PointX="14.125" PointY="15.125" />
+        <AssociationConnector Association="Model1.SessionUserToSession" />
+        <AssociationConnector Association="Model1.UserUserToSession" ManuallyRouted="false" >
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model1.UserAnswerSequence" Width="1.5" PointX="11.25" PointY="13.375" />
+        <EntityTypeShape EntityType="Model1.UserAnswerBool" Width="1.5" PointX="11.25" PointY="16.5" />
+        <EntityTypeShape EntityType="Model1.UserAnswerDefault" Width="1.5" PointX="11.25" PointY="18.875" />
+        <AssociationConnector Association="Model1.QuestionSequenceTrue" />
+        <AssociationConnector Association="Model1.QuestionBoolTrue" />
+        <AssociationConnector Association="Model1.QuestionDefaultTrue" />
+        <AssociationConnector Association="Model1.SequenceTrueUserAnswerSequence" />
+        <AssociationConnector Association="Model1.BoolTrueUserAnswerBool" />
+        <AssociationConnector Association="Model1.DefaultTrueUserAnswerDefault" />
+        <AssociationConnector Association="Model1.UserAnswerSequenceUserToSession" />
+        <AssociationConnector Association="Model1.UserAnswerBoolUserToSession" />
+        <AssociationConnector Association="Model1.UserAnswerDefaultUserToSession" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

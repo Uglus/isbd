@@ -6,13 +6,172 @@
     <edmx:StorageModels>
     <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="UserRoles" EntityType="Model1.Store.UserRoles" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Users" EntityType="Model1.Store.Users" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Roles" EntityType="Model1.Store.Roles" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="StatusUser" Association="Model1.Store.StatusUser">
-      <End Role="Status" EntitySet="Roles" />
+    <EntitySet Name="UserStatuses" EntityType="Model1.Store.UserStatuses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserFriendsSet" EntityType="Model1.Store.UserFriendsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UsersToChats" EntityType="Model1.Store.UsersToChats" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Chats" EntityType="Model1.Store.Chats" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChatMessages" EntityType="Model1.Store.ChatMessages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="QuizesApproved" EntityType="Model1.Store.QuizesApproved" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UsersQuizesResp" EntityType="Model1.Store.UsersQuizesResp" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Quizes" EntityType="Model1.Store.Quizes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="QuizStatuses" EntityType="Model1.Store.QuizStatuses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="QuizesToCategories" EntityType="Model1.Store.QuizesToCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="QuizCaetgories" EntityType="Model1.Store.QuizCaetgories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Achievements" EntityType="Model1.Store.Achievements" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UsersToAchievements" EntityType="Model1.Store.UsersToAchievements" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Questions" EntityType="Model1.Store.Questions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="QuestionTypes" EntityType="Model1.Store.QuestionTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SequencesTrue" EntityType="Model1.Store.SequencesTrue" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BoolsTrue" EntityType="Model1.Store.BoolsTrue" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DefaultsTrue" EntityType="Model1.Store.DefaultsTrue" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sessions" EntityType="Model1.Store.Sessions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SessionStatuses" EntityType="Model1.Store.SessionStatuses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UsersToSessions" EntityType="Model1.Store.UsersToSessions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UsersAnswersSequence" EntityType="Model1.Store.UsersAnswersSequence" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserAnswersBool" EntityType="Model1.Store.UserAnswersBool" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserAnswersDefault" EntityType="Model1.Store.UserAnswersDefault" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="RoleUser" Association="Model1.Store.RoleUser">
+      <End Role="Role" EntitySet="UserRoles" />
       <End Role="User" EntitySet="Users" />
     </AssociationSet>
+    <AssociationSet Name="UserStatusUser" Association="Model1.Store.UserStatusUser">
+      <End Role="UserStatus" EntitySet="UserStatuses" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="UserFriendsUser" Association="Model1.Store.UserFriendsUser">
+      <End Role="UserFriends" EntitySet="UserFriendsSet" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="UserFriendsUser1" Association="Model1.Store.UserFriendsUser1">
+      <End Role="UserFriends" EntitySet="UserFriendsSet" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="UserToChatUser" Association="Model1.Store.UserToChatUser">
+      <End Role="UserToChat" EntitySet="UsersToChats" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="ChatUserToChat" Association="Model1.Store.ChatUserToChat">
+      <End Role="Chat" EntitySet="Chats" />
+      <End Role="UserToChat" EntitySet="UsersToChats" />
+    </AssociationSet>
+    <AssociationSet Name="ChatChatMessage" Association="Model1.Store.ChatChatMessage">
+      <End Role="Chat" EntitySet="Chats" />
+      <End Role="ChatMessage" EntitySet="ChatMessages" />
+    </AssociationSet>
+    <AssociationSet Name="ChatMessageUser" Association="Model1.Store.ChatMessageUser">
+      <End Role="ChatMessage" EntitySet="ChatMessages" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="UserQuizApproved" Association="Model1.Store.UserQuizApproved">
+      <End Role="User" EntitySet="Users" />
+      <End Role="QuizApproved" EntitySet="QuizesApproved" />
+    </AssociationSet>
+    <AssociationSet Name="QuizQuizApproved" Association="Model1.Store.QuizQuizApproved">
+      <End Role="Quiz" EntitySet="Quizes" />
+      <End Role="QuizApproved" EntitySet="QuizesApproved" />
+    </AssociationSet>
+    <AssociationSet Name="QuizUserQuizResp" Association="Model1.Store.QuizUserQuizResp">
+      <End Role="Quiz" EntitySet="Quizes" />
+      <End Role="UserQuizResp" EntitySet="UsersQuizesResp" />
+    </AssociationSet>
+    <AssociationSet Name="UserUserQuizResp" Association="Model1.Store.UserUserQuizResp">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserQuizResp" EntitySet="UsersQuizesResp" />
+    </AssociationSet>
+    <AssociationSet Name="UserQuiz" Association="Model1.Store.UserQuiz">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Quiz" EntitySet="Quizes" />
+    </AssociationSet>
+    <AssociationSet Name="QuizStatusQuiz" Association="Model1.Store.QuizStatusQuiz">
+      <End Role="QuizStatus" EntitySet="QuizStatuses" />
+      <End Role="Quiz" EntitySet="Quizes" />
+    </AssociationSet>
+    <AssociationSet Name="QuizCaetgoryQuizToCategory" Association="Model1.Store.QuizCaetgoryQuizToCategory">
+      <End Role="QuizCaetgory" EntitySet="QuizCaetgories" />
+      <End Role="QuizToCategory" EntitySet="QuizesToCategories" />
+    </AssociationSet>
+    <AssociationSet Name="QuizQuizToCategory" Association="Model1.Store.QuizQuizToCategory">
+      <End Role="Quiz" EntitySet="Quizes" />
+      <End Role="QuizToCategory" EntitySet="QuizesToCategories" />
+    </AssociationSet>
+    <AssociationSet Name="AchievementUserToAchievement" Association="Model1.Store.AchievementUserToAchievement">
+      <End Role="Achievement" EntitySet="Achievements" />
+      <End Role="UserToAchievement" EntitySet="UsersToAchievements" />
+    </AssociationSet>
+    <AssociationSet Name="UserUserToAchievement" Association="Model1.Store.UserUserToAchievement">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserToAchievement" EntitySet="UsersToAchievements" />
+    </AssociationSet>
+    <AssociationSet Name="QuestionTypeQuestion" Association="Model1.Store.QuestionTypeQuestion">
+      <End Role="QuestionType" EntitySet="QuestionTypes" />
+      <End Role="Question" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="QuizQuestion" Association="Model1.Store.QuizQuestion">
+      <End Role="Quiz" EntitySet="Quizes" />
+      <End Role="Question" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="SessionStatusSession" Association="Model1.Store.SessionStatusSession">
+      <End Role="SessionStatus" EntitySet="SessionStatuses" />
+      <End Role="Session" EntitySet="Sessions" />
+    </AssociationSet>
+    <AssociationSet Name="SessionQuiz" Association="Model1.Store.SessionQuiz">
+      <End Role="Session" EntitySet="Sessions" />
+      <End Role="Quiz" EntitySet="Quizes" />
+    </AssociationSet>
+    <AssociationSet Name="SessionUserToSession" Association="Model1.Store.SessionUserToSession">
+      <End Role="Session" EntitySet="Sessions" />
+      <End Role="UserToSession" EntitySet="UsersToSessions" />
+    </AssociationSet>
+    <AssociationSet Name="UserUserToSession" Association="Model1.Store.UserUserToSession">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserToSession" EntitySet="UsersToSessions" />
+    </AssociationSet>
+    <AssociationSet Name="QuestionSequenceTrue" Association="Model1.Store.QuestionSequenceTrue">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="SequenceTrue" EntitySet="SequencesTrue" />
+    </AssociationSet>
+    <AssociationSet Name="QuestionBoolTrue" Association="Model1.Store.QuestionBoolTrue">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="BoolTrue" EntitySet="BoolsTrue" />
+    </AssociationSet>
+    <AssociationSet Name="QuestionDefaultTrue" Association="Model1.Store.QuestionDefaultTrue">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="DefaultTrue" EntitySet="DefaultsTrue" />
+    </AssociationSet>
+    <AssociationSet Name="SequenceTrueUserAnswerSequence" Association="Model1.Store.SequenceTrueUserAnswerSequence">
+      <End Role="SequenceTrue" EntitySet="SequencesTrue" />
+      <End Role="UserAnswerSequence" EntitySet="UsersAnswersSequence" />
+    </AssociationSet>
+    <AssociationSet Name="BoolTrueUserAnswerBool" Association="Model1.Store.BoolTrueUserAnswerBool">
+      <End Role="BoolTrue" EntitySet="BoolsTrue" />
+      <End Role="UserAnswerBool" EntitySet="UserAnswersBool" />
+    </AssociationSet>
+    <AssociationSet Name="DefaultTrueUserAnswerDefault" Association="Model1.Store.DefaultTrueUserAnswerDefault">
+      <End Role="DefaultTrue" EntitySet="DefaultsTrue" />
+      <End Role="UserAnswerDefault" EntitySet="UserAnswersDefault" />
+    </AssociationSet>
+    <AssociationSet Name="UserAnswerSequenceUserToSession" Association="Model1.Store.UserAnswerSequenceUserToSession">
+      <End Role="UserAnswerSequence" EntitySet="UsersAnswersSequence" />
+      <End Role="UserToSession" EntitySet="UsersToSessions" />
+    </AssociationSet>
+    <AssociationSet Name="UserAnswerBoolUserToSession" Association="Model1.Store.UserAnswerBoolUserToSession">
+      <End Role="UserAnswerBool" EntitySet="UserAnswersBool" />
+      <End Role="UserToSession" EntitySet="UsersToSessions" />
+    </AssociationSet>
+    <AssociationSet Name="UserAnswerDefaultUserToSession" Association="Model1.Store.UserAnswerDefaultUserToSession">
+      <End Role="UserAnswerDefault" EntitySet="UserAnswersDefault" />
+      <End Role="UserToSession" EntitySet="UsersToSessions" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="UserRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="Id" />
@@ -23,24 +182,620 @@
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
     <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
+    <Property Name="ActivateLink" Type="nvarchar(max)" Nullable="false" />
     <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Roles">
+  <EntityType Name="UserStatuses">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <Association Name="StatusUser">
-    <End Role="Status" Type="Model1.Store.Roles" Multiplicity="1" />
+  <EntityType Name="UserFriendsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Activated" Type="bit" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="UserIdFrom" Type="int" Nullable="false" />
+    <Property Name="UserIdTo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersToChats">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="ChatId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Chats">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChatMessages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="ChatId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QuizesApproved">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="QuizId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersQuizesResp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="QuizId" Type="int" Nullable="false" />
+    <Property Name="Rate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Favourite" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Quizes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QuizStatuses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QuizesToCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="QuizId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QuizCaetgories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Achievements">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Decription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Icon" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersToAchievements">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AchievementId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Questions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Points" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TypeId" Type="int" Nullable="false" />
+    <Property Name="QuizId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QuestionTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SequencesTrue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Answer1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Answer2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Answer3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Answer4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="QuestionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BoolsTrue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Answer" Type="bit" Nullable="false" />
+    <Property Name="QuestionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DefaultsTrue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Answer" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Variant1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Variant2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Variant3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Variant4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="QuestionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sessions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccessCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="QuizId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SessionStatuses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersToSessions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SessionId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersAnswersSequence">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Answer1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Answer2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Answer3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Answer4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SequenceId" Type="int" Nullable="false" />
+    <Property Name="UserSessionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserAnswersBool">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Answer" Type="bit" Nullable="false" />
+    <Property Name="BoolId" Type="int" Nullable="false" />
+    <Property Name="UserSessionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserAnswersDefault">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Answer" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DefaultId" Type="int" Nullable="false" />
+    <Property Name="UserSessionId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="RoleUser">
+    <End Role="Role" Type="Model1.Store.UserRoles" Multiplicity="1" />
     <End Role="User" Type="Model1.Store.Users" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Status">
+      <Principal Role="Role">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="User">
         <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserStatusUser">
+    <End Role="UserStatus" Type="Model1.Store.UserStatuses" Multiplicity="1" />
+    <End Role="User" Type="Model1.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserFriendsUser">
+    <End Role="UserFriends" Type="Model1.Store.UserFriendsSet" Multiplicity="*" />
+    <End Role="User" Type="Model1.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserFriends">
+        <PropertyRef Name="UserIdFrom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserFriendsUser1">
+    <End Role="UserFriends" Type="Model1.Store.UserFriendsSet" Multiplicity="*" />
+    <End Role="User" Type="Model1.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserFriends">
+        <PropertyRef Name="UserIdTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserToChatUser">
+    <End Role="UserToChat" Type="Model1.Store.UsersToChats" Multiplicity="*" />
+    <End Role="User" Type="Model1.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserToChat">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChatUserToChat">
+    <End Role="Chat" Type="Model1.Store.Chats" Multiplicity="1" />
+    <End Role="UserToChat" Type="Model1.Store.UsersToChats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chat">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserToChat">
+        <PropertyRef Name="ChatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChatChatMessage">
+    <End Role="Chat" Type="Model1.Store.Chats" Multiplicity="1" />
+    <End Role="ChatMessage" Type="Model1.Store.ChatMessages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chat">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChatMessage">
+        <PropertyRef Name="ChatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChatMessageUser">
+    <End Role="ChatMessage" Type="Model1.Store.ChatMessages" Multiplicity="*" />
+    <End Role="User" Type="Model1.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChatMessage">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserQuizApproved">
+    <End Role="User" Type="Model1.Store.Users" Multiplicity="1" />
+    <End Role="QuizApproved" Type="Model1.Store.QuizesApproved" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuizApproved">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="QuizQuizApproved">
+    <End Role="Quiz" Type="Model1.Store.Quizes" Multiplicity="1" />
+    <End Role="QuizApproved" Type="Model1.Store.QuizesApproved" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quiz">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuizApproved">
+        <PropertyRef Name="QuizId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="QuizUserQuizResp">
+    <End Role="Quiz" Type="Model1.Store.Quizes" Multiplicity="1" />
+    <End Role="UserQuizResp" Type="Model1.Store.UsersQuizesResp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quiz">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserQuizResp">
+        <PropertyRef Name="QuizId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserUserQuizResp">
+    <End Role="User" Type="Model1.Store.Users" Multiplicity="1" />
+    <End Role="UserQuizResp" Type="Model1.Store.UsersQuizesResp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserQuizResp">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserQuiz">
+    <End Role="User" Type="Model1.Store.Users" Multiplicity="1" />
+    <End Role="Quiz" Type="Model1.Store.Quizes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Quiz">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="QuizStatusQuiz">
+    <End Role="QuizStatus" Type="Model1.Store.QuizStatuses" Multiplicity="1" />
+    <End Role="Quiz" Type="Model1.Store.Quizes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuizStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Quiz">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="QuizCaetgoryQuizToCategory">
+    <End Role="QuizCaetgory" Type="Model1.Store.QuizCaetgories" Multiplicity="1" />
+    <End Role="QuizToCategory" Type="Model1.Store.QuizesToCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuizCaetgory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuizToCategory">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="QuizQuizToCategory">
+    <End Role="Quiz" Type="Model1.Store.Quizes" Multiplicity="1" />
+    <End Role="QuizToCategory" Type="Model1.Store.QuizesToCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quiz">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuizToCategory">
+        <PropertyRef Name="QuizId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AchievementUserToAchievement">
+    <End Role="Achievement" Type="Model1.Store.Achievements" Multiplicity="1" />
+    <End Role="UserToAchievement" Type="Model1.Store.UsersToAchievements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Achievement">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserToAchievement">
+        <PropertyRef Name="AchievementId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserUserToAchievement">
+    <End Role="User" Type="Model1.Store.Users" Multiplicity="1" />
+    <End Role="UserToAchievement" Type="Model1.Store.UsersToAchievements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserToAchievement">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="QuestionTypeQuestion">
+    <End Role="QuestionType" Type="Model1.Store.QuestionTypes" Multiplicity="1" />
+    <End Role="Question" Type="Model1.Store.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="QuizQuestion">
+    <End Role="Quiz" Type="Model1.Store.Quizes" Multiplicity="1" />
+    <End Role="Question" Type="Model1.Store.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quiz">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="QuizId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SessionStatusSession">
+    <End Role="SessionStatus" Type="Model1.Store.SessionStatuses" Multiplicity="1" />
+    <End Role="Session" Type="Model1.Store.Sessions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SessionStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Session">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SessionQuiz">
+    <End Role="Session" Type="Model1.Store.Sessions" Multiplicity="*" />
+    <End Role="Quiz" Type="Model1.Store.Quizes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Quiz">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Session">
+        <PropertyRef Name="QuizId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SessionUserToSession">
+    <End Role="Session" Type="Model1.Store.Sessions" Multiplicity="1" />
+    <End Role="UserToSession" Type="Model1.Store.UsersToSessions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Session">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserToSession">
+        <PropertyRef Name="SessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserUserToSession">
+    <End Role="User" Type="Model1.Store.Users" Multiplicity="1" />
+    <End Role="UserToSession" Type="Model1.Store.UsersToSessions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserToSession">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="QuestionSequenceTrue">
+    <End Role="Question" Type="Model1.Store.Questions" Multiplicity="1" />
+    <End Role="SequenceTrue" Type="Model1.Store.SequencesTrue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SequenceTrue">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="QuestionBoolTrue">
+    <End Role="Question" Type="Model1.Store.Questions" Multiplicity="1" />
+    <End Role="BoolTrue" Type="Model1.Store.BoolsTrue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BoolTrue">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="QuestionDefaultTrue">
+    <End Role="Question" Type="Model1.Store.Questions" Multiplicity="1" />
+    <End Role="DefaultTrue" Type="Model1.Store.DefaultsTrue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DefaultTrue">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SequenceTrueUserAnswerSequence">
+    <End Role="SequenceTrue" Type="Model1.Store.SequencesTrue" Multiplicity="1" />
+    <End Role="UserAnswerSequence" Type="Model1.Store.UsersAnswersSequence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SequenceTrue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserAnswerSequence">
+        <PropertyRef Name="SequenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BoolTrueUserAnswerBool">
+    <End Role="BoolTrue" Type="Model1.Store.BoolsTrue" Multiplicity="1" />
+    <End Role="UserAnswerBool" Type="Model1.Store.UserAnswersBool" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BoolTrue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserAnswerBool">
+        <PropertyRef Name="BoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DefaultTrueUserAnswerDefault">
+    <End Role="DefaultTrue" Type="Model1.Store.DefaultsTrue" Multiplicity="1" />
+    <End Role="UserAnswerDefault" Type="Model1.Store.UserAnswersDefault" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DefaultTrue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserAnswerDefault">
+        <PropertyRef Name="DefaultId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserAnswerSequenceUserToSession">
+    <End Role="UserAnswerSequence" Type="Model1.Store.UsersAnswersSequence" Multiplicity="*" />
+    <End Role="UserToSession" Type="Model1.Store.UsersToSessions" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="UserToSession">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserAnswerSequence">
+        <PropertyRef Name="UserSessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserAnswerBoolUserToSession">
+    <End Role="UserAnswerBool" Type="Model1.Store.UserAnswersBool" Multiplicity="*" />
+    <End Role="UserToSession" Type="Model1.Store.UsersToSessions" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="UserToSession">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserAnswerBool">
+        <PropertyRef Name="UserSessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserAnswerDefaultUserToSession">
+    <End Role="UserAnswerDefault" Type="Model1.Store.UserAnswersDefault" Multiplicity="*" />
+    <End Role="UserToSession" Type="Model1.Store.UsersToSessions" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="UserToSession">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserAnswerDefault">
+        <PropertyRef Name="UserSessionId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -49,11 +804,163 @@
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserRoles" EntityType="Model1.UserRole" />
           <EntitySet Name="Users" EntityType="Model1.User" />
-          <EntitySet Name="Roles" EntityType="Model1.Role" />
-          <AssociationSet Name="StatusUser" Association="Model1.StatusUser">
-            <End Role="Status" EntitySet="Roles" />
+          <AssociationSet Name="RoleUser" Association="Model1.RoleUser">
+            <End Role="Role" EntitySet="UserRoles" />
             <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="UserStatuses" EntityType="Model1.UserStatus" />
+          <AssociationSet Name="UserStatusUser" Association="Model1.UserStatusUser">
+            <End Role="UserStatus" EntitySet="UserStatuses" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="UserFriendsSet" EntityType="Model1.UserFriends" />
+          <AssociationSet Name="UserFriendsUser" Association="Model1.UserFriendsUser">
+            <End Role="UserFriends" EntitySet="UserFriendsSet" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="UserFriendsUser1" Association="Model1.UserFriendsUser1">
+            <End Role="UserFriends" EntitySet="UserFriendsSet" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="UsersToChats" EntityType="Model1.UserToChat" />
+          <AssociationSet Name="UserToChatUser" Association="Model1.UserToChatUser">
+            <End Role="UserToChat" EntitySet="UsersToChats" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="Chats" EntityType="Model1.Chat" />
+          <AssociationSet Name="ChatUserToChat" Association="Model1.ChatUserToChat">
+            <End Role="Chat" EntitySet="Chats" />
+            <End Role="UserToChat" EntitySet="UsersToChats" />
+          </AssociationSet>
+          <EntitySet Name="ChatMessages" EntityType="Model1.ChatMessage" />
+          <AssociationSet Name="ChatChatMessage" Association="Model1.ChatChatMessage">
+            <End Role="Chat" EntitySet="Chats" />
+            <End Role="ChatMessage" EntitySet="ChatMessages" />
+          </AssociationSet>
+          <AssociationSet Name="ChatMessageUser" Association="Model1.ChatMessageUser">
+            <End Role="ChatMessage" EntitySet="ChatMessages" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="QuizesApproved" EntityType="Model1.QuizApproved" />
+          <EntitySet Name="UsersQuizesResp" EntityType="Model1.UserQuizResp" />
+          <EntitySet Name="Quizes" EntityType="Model1.Quiz" />
+          <EntitySet Name="QuizStatuses" EntityType="Model1.QuizStatus" />
+          <EntitySet Name="QuizesToCategories" EntityType="Model1.QuizToCategory" />
+          <EntitySet Name="QuizCaetgories" EntityType="Model1.QuizCaetgory" />
+          <AssociationSet Name="UserQuizApproved" Association="Model1.UserQuizApproved">
+            <End Role="User" EntitySet="Users" />
+            <End Role="QuizApproved" EntitySet="QuizesApproved" />
+          </AssociationSet>
+          <AssociationSet Name="QuizQuizApproved" Association="Model1.QuizQuizApproved">
+            <End Role="Quiz" EntitySet="Quizes" />
+            <End Role="QuizApproved" EntitySet="QuizesApproved" />
+          </AssociationSet>
+          <AssociationSet Name="QuizUserQuizResp" Association="Model1.QuizUserQuizResp">
+            <End Role="Quiz" EntitySet="Quizes" />
+            <End Role="UserQuizResp" EntitySet="UsersQuizesResp" />
+          </AssociationSet>
+          <AssociationSet Name="UserUserQuizResp" Association="Model1.UserUserQuizResp">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserQuizResp" EntitySet="UsersQuizesResp" />
+          </AssociationSet>
+          <AssociationSet Name="UserQuiz" Association="Model1.UserQuiz">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Quiz" EntitySet="Quizes" />
+          </AssociationSet>
+          <AssociationSet Name="QuizStatusQuiz" Association="Model1.QuizStatusQuiz">
+            <End Role="QuizStatus" EntitySet="QuizStatuses" />
+            <End Role="Quiz" EntitySet="Quizes" />
+          </AssociationSet>
+          <AssociationSet Name="QuizCaetgoryQuizToCategory" Association="Model1.QuizCaetgoryQuizToCategory">
+            <End Role="QuizCaetgory" EntitySet="QuizCaetgories" />
+            <End Role="QuizToCategory" EntitySet="QuizesToCategories" />
+          </AssociationSet>
+          <AssociationSet Name="QuizQuizToCategory" Association="Model1.QuizQuizToCategory">
+            <End Role="Quiz" EntitySet="Quizes" />
+            <End Role="QuizToCategory" EntitySet="QuizesToCategories" />
+          </AssociationSet>
+          <EntitySet Name="Achievements" EntityType="Model1.Achievement" />
+          <EntitySet Name="UsersToAchievements" EntityType="Model1.UserToAchievement" />
+          <AssociationSet Name="AchievementUserToAchievement" Association="Model1.AchievementUserToAchievement">
+            <End Role="Achievement" EntitySet="Achievements" />
+            <End Role="UserToAchievement" EntitySet="UsersToAchievements" />
+          </AssociationSet>
+          <AssociationSet Name="UserUserToAchievement" Association="Model1.UserUserToAchievement">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserToAchievement" EntitySet="UsersToAchievements" />
+          </AssociationSet>
+          <EntitySet Name="Questions" EntityType="Model1.Question" />
+          <EntitySet Name="QuestionTypes" EntityType="Model1.QuestionType" />
+          <AssociationSet Name="QuestionTypeQuestion" Association="Model1.QuestionTypeQuestion">
+            <End Role="QuestionType" EntitySet="QuestionTypes" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="QuizQuestion" Association="Model1.QuizQuestion">
+            <End Role="Quiz" EntitySet="Quizes" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <EntitySet Name="SequencesTrue" EntityType="Model1.SequenceTrue" />
+          <EntitySet Name="BoolsTrue" EntityType="Model1.BoolTrue" />
+          <EntitySet Name="DefaultsTrue" EntityType="Model1.DefaultTrue" />
+          <EntitySet Name="Sessions" EntityType="Model1.Session" />
+          <EntitySet Name="SessionStatuses" EntityType="Model1.SessionStatus" />
+          <AssociationSet Name="SessionStatusSession" Association="Model1.SessionStatusSession">
+            <End Role="SessionStatus" EntitySet="SessionStatuses" />
+            <End Role="Session" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="SessionQuiz" Association="Model1.SessionQuiz">
+            <End Role="Session" EntitySet="Sessions" />
+            <End Role="Quiz" EntitySet="Quizes" />
+          </AssociationSet>
+          <EntitySet Name="UsersToSessions" EntityType="Model1.UserToSession" />
+          <AssociationSet Name="SessionUserToSession" Association="Model1.SessionUserToSession">
+            <End Role="Session" EntitySet="Sessions" />
+            <End Role="UserToSession" EntitySet="UsersToSessions" />
+          </AssociationSet>
+          <AssociationSet Name="UserUserToSession" Association="Model1.UserUserToSession">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserToSession" EntitySet="UsersToSessions" />
+          </AssociationSet>
+          <EntitySet Name="UsersAnswersSequence" EntityType="Model1.UserAnswerSequence" />
+          <EntitySet Name="UserAnswersBool" EntityType="Model1.UserAnswerBool" />
+          <EntitySet Name="UserAnswersDefault" EntityType="Model1.UserAnswerDefault" />
+          <AssociationSet Name="QuestionSequenceTrue" Association="Model1.QuestionSequenceTrue">
+            <End Role="Question" EntitySet="Questions" />
+            <End Role="SequenceTrue" EntitySet="SequencesTrue" />
+          </AssociationSet>
+          <AssociationSet Name="QuestionBoolTrue" Association="Model1.QuestionBoolTrue">
+            <End Role="Question" EntitySet="Questions" />
+            <End Role="BoolTrue" EntitySet="BoolsTrue" />
+          </AssociationSet>
+          <AssociationSet Name="QuestionDefaultTrue" Association="Model1.QuestionDefaultTrue">
+            <End Role="Question" EntitySet="Questions" />
+            <End Role="DefaultTrue" EntitySet="DefaultsTrue" />
+          </AssociationSet>
+          <AssociationSet Name="SequenceTrueUserAnswerSequence" Association="Model1.SequenceTrueUserAnswerSequence">
+            <End Role="SequenceTrue" EntitySet="SequencesTrue" />
+            <End Role="UserAnswerSequence" EntitySet="UsersAnswersSequence" />
+          </AssociationSet>
+          <AssociationSet Name="BoolTrueUserAnswerBool" Association="Model1.BoolTrueUserAnswerBool">
+            <End Role="BoolTrue" EntitySet="BoolsTrue" />
+            <End Role="UserAnswerBool" EntitySet="UserAnswersBool" />
+          </AssociationSet>
+          <AssociationSet Name="DefaultTrueUserAnswerDefault" Association="Model1.DefaultTrueUserAnswerDefault">
+            <End Role="DefaultTrue" EntitySet="DefaultsTrue" />
+            <End Role="UserAnswerDefault" EntitySet="UserAnswersDefault" />
+          </AssociationSet>
+          <AssociationSet Name="UserAnswerSequenceUserToSession" Association="Model1.UserAnswerSequenceUserToSession">
+            <End Role="UserAnswerSequence" EntitySet="UsersAnswersSequence" />
+            <End Role="UserToSession" EntitySet="UsersToSessions" />
+          </AssociationSet>
+          <AssociationSet Name="UserAnswerBoolUserToSession" Association="Model1.UserAnswerBoolUserToSession">
+            <End Role="UserAnswerBool" EntitySet="UserAnswersBool" />
+            <End Role="UserToSession" EntitySet="UsersToSessions" />
+          </AssociationSet>
+          <AssociationSet Name="UserAnswerDefaultUserToSession" Association="Model1.UserAnswerDefaultUserToSession">
+            <End Role="UserAnswerDefault" EntitySet="UserAnswersDefault" />
+            <End Role="UserToSession" EntitySet="UsersToSessions" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
@@ -66,26 +973,693 @@
           <Property Name="Email" Type="String" Nullable="false" />
           <Property Name="Password" Type="String" Nullable="false" />
           <Property Name="RegistrationDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Model1.RoleUser" FromRole="User" ToRole="Role" />
+          <Property Name="ActivateLink" Type="String" Nullable="false" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Status" Relationship="Model1.StatusUser" FromRole="User" ToRole="Status" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserStatus" Relationship="Model1.UserStatusUser" FromRole="User" ToRole="UserStatus" />
+          <NavigationProperty Name="UserFriendsFrom" Relationship="Model1.UserFriendsUser" FromRole="User" ToRole="UserFriends" />
+          <NavigationProperty Name="UserFriendsTo" Relationship="Model1.UserFriendsUser1" FromRole="User" ToRole="UserFriends" />
+          <NavigationProperty Name="UserToChat" Relationship="Model1.UserToChatUser" FromRole="User" ToRole="UserToChat" />
+          <NavigationProperty Name="ChatMessage" Relationship="Model1.ChatMessageUser" FromRole="User" ToRole="ChatMessage" />
+          <NavigationProperty Name="QuizApproved" Relationship="Model1.UserQuizApproved" FromRole="User" ToRole="QuizApproved" />
+          <NavigationProperty Name="UserQuizResp" Relationship="Model1.UserUserQuizResp" FromRole="User" ToRole="UserQuizResp" />
+          <NavigationProperty Name="Quiz" Relationship="Model1.UserQuiz" FromRole="User" ToRole="Quiz" />
+          <NavigationProperty Name="UserToAchievement" Relationship="Model1.UserUserToAchievement" FromRole="User" ToRole="UserToAchievement" />
+          <NavigationProperty Name="UserToSession" Relationship="Model1.UserUserToSession" FromRole="User" ToRole="UserToSession" />
         </EntityType>
-        <EntityType Name="Role">
+        <EntityType Name="UserRole">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Model1.StatusUser" FromRole="Status" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="Model1.RoleUser" FromRole="Role" ToRole="User" />
         </EntityType>
-        <Association Name="StatusUser">
-          <End Type="Model1.Role" Role="Status" Multiplicity="1" />
+        <Association Name="RoleUser">
+          <End Type="Model1.UserRole" Role="Role" Multiplicity="1" />
           <End Type="Model1.User" Role="User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Status">
+            <Principal Role="Role">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="User">
               <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Model1.UserStatusUser" FromRole="UserStatus" ToRole="User" />
+        </EntityType>
+        <Association Name="UserStatusUser">
+          <End Type="Model1.UserStatus" Role="UserStatus" Multiplicity="1" />
+          <End Type="Model1.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserFriends">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Activated" Type="Boolean" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="UserIdFrom" Type="Int32" Nullable="false" />
+          <Property Name="UserIdTo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserFrom" Relationship="Model1.UserFriendsUser" FromRole="UserFriends" ToRole="User" />
+          <NavigationProperty Name="UserTo" Relationship="Model1.UserFriendsUser1" FromRole="UserFriends" ToRole="User" />
+        </EntityType>
+        <Association Name="UserFriendsUser">
+          <End Type="Model1.UserFriends" Role="UserFriends" Multiplicity="*" />
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserFriends">
+              <PropertyRef Name="UserIdFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserFriendsUser1">
+          <End Type="Model1.UserFriends" Role="UserFriends" Multiplicity="*" />
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserFriends">
+              <PropertyRef Name="UserIdTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserToChat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ChatId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Model1.UserToChatUser" FromRole="UserToChat" ToRole="User" />
+          <NavigationProperty Name="Chat" Relationship="Model1.ChatUserToChat" FromRole="UserToChat" ToRole="Chat" />
+        </EntityType>
+        <Association Name="UserToChatUser">
+          <End Type="Model1.UserToChat" Role="UserToChat" Multiplicity="*" />
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserToChat">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Chat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="UserToChat" Relationship="Model1.ChatUserToChat" FromRole="Chat" ToRole="UserToChat" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <NavigationProperty Name="ChatMessage" Relationship="Model1.ChatChatMessage" FromRole="Chat" ToRole="ChatMessage" />
+        </EntityType>
+        <Association Name="ChatUserToChat">
+          <End Type="Model1.Chat" Role="Chat" Multiplicity="1" />
+          <End Type="Model1.UserToChat" Role="UserToChat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserToChat">
+              <PropertyRef Name="ChatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ChatMessage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="ChatId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Chat" Relationship="Model1.ChatChatMessage" FromRole="ChatMessage" ToRole="Chat" />
+          <NavigationProperty Name="User" Relationship="Model1.ChatMessageUser" FromRole="ChatMessage" ToRole="User" />
+        </EntityType>
+        <Association Name="ChatChatMessage">
+          <End Type="Model1.Chat" Role="Chat" Multiplicity="1" />
+          <End Type="Model1.ChatMessage" Role="ChatMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChatMessage">
+              <PropertyRef Name="ChatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ChatMessageUser">
+          <End Type="Model1.ChatMessage" Role="ChatMessage" Multiplicity="*" />
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChatMessage">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="QuizApproved">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="QuizId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Model1.UserQuizApproved" FromRole="QuizApproved" ToRole="User" />
+          <NavigationProperty Name="Quiz" Relationship="Model1.QuizQuizApproved" FromRole="QuizApproved" ToRole="Quiz" />
+        </EntityType>
+        <EntityType Name="UserQuizResp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="QuizId" Type="Int32" Nullable="false" />
+          <Property Name="Rate" Type="String" Nullable="false" />
+          <Property Name="Favourite" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Quiz" Relationship="Model1.QuizUserQuizResp" FromRole="UserQuizResp" ToRole="Quiz" />
+          <NavigationProperty Name="User" Relationship="Model1.UserUserQuizResp" FromRole="UserQuizResp" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Quiz">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Image" Type="String" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="QuizApproved" Relationship="Model1.QuizQuizApproved" FromRole="Quiz" ToRole="QuizApproved" />
+          <NavigationProperty Name="UserQuizResp" Relationship="Model1.QuizUserQuizResp" FromRole="Quiz" ToRole="UserQuizResp" />
+          <NavigationProperty Name="User" Relationship="Model1.UserQuiz" FromRole="Quiz" ToRole="User" />
+          <NavigationProperty Name="QuizStatus" Relationship="Model1.QuizStatusQuiz" FromRole="Quiz" ToRole="QuizStatus" />
+          <NavigationProperty Name="QuizToCategory" Relationship="Model1.QuizQuizToCategory" FromRole="Quiz" ToRole="QuizToCategory" />
+          <NavigationProperty Name="Question" Relationship="Model1.QuizQuestion" FromRole="Quiz" ToRole="Question" />
+          <NavigationProperty Name="Session" Relationship="Model1.SessionQuiz" FromRole="Quiz" ToRole="Session" />
+        </EntityType>
+        <EntityType Name="QuizStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Quiz" Relationship="Model1.QuizStatusQuiz" FromRole="QuizStatus" ToRole="Quiz" />
+        </EntityType>
+        <EntityType Name="QuizToCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="QuizId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="QuizCaetgory" Relationship="Model1.QuizCaetgoryQuizToCategory" FromRole="QuizToCategory" ToRole="QuizCaetgory" />
+          <NavigationProperty Name="Quiz" Relationship="Model1.QuizQuizToCategory" FromRole="QuizToCategory" ToRole="Quiz" />
+        </EntityType>
+        <EntityType Name="QuizCaetgory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="QuizToCategory" Relationship="Model1.QuizCaetgoryQuizToCategory" FromRole="QuizCaetgory" ToRole="QuizToCategory" />
+        </EntityType>
+        <Association Name="UserQuizApproved">
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <End Type="Model1.QuizApproved" Role="QuizApproved" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuizApproved">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuizQuizApproved">
+          <End Type="Model1.Quiz" Role="Quiz" Multiplicity="1" />
+          <End Type="Model1.QuizApproved" Role="QuizApproved" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quiz">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuizApproved">
+              <PropertyRef Name="QuizId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuizUserQuizResp">
+          <End Type="Model1.Quiz" Role="Quiz" Multiplicity="1" />
+          <End Type="Model1.UserQuizResp" Role="UserQuizResp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quiz">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserQuizResp">
+              <PropertyRef Name="QuizId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserUserQuizResp">
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <End Type="Model1.UserQuizResp" Role="UserQuizResp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserQuizResp">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserQuiz">
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <End Type="Model1.Quiz" Role="Quiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Quiz">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuizStatusQuiz">
+          <End Type="Model1.QuizStatus" Role="QuizStatus" Multiplicity="1" />
+          <End Type="Model1.Quiz" Role="Quiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuizStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Quiz">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuizCaetgoryQuizToCategory">
+          <End Type="Model1.QuizCaetgory" Role="QuizCaetgory" Multiplicity="1" />
+          <End Type="Model1.QuizToCategory" Role="QuizToCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuizCaetgory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuizToCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuizQuizToCategory">
+          <End Type="Model1.Quiz" Role="Quiz" Multiplicity="1" />
+          <End Type="Model1.QuizToCategory" Role="QuizToCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quiz">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuizToCategory">
+              <PropertyRef Name="QuizId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Achievement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Decription" Type="String" Nullable="false" />
+          <Property Name="Icon" Type="String" Nullable="false" />
+          <NavigationProperty Name="UserToAchievement" Relationship="Model1.AchievementUserToAchievement" FromRole="Achievement" ToRole="UserToAchievement" />
+        </EntityType>
+        <EntityType Name="UserToAchievement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AchievementId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Achievement" Relationship="Model1.AchievementUserToAchievement" FromRole="UserToAchievement" ToRole="Achievement" />
+          <NavigationProperty Name="User" Relationship="Model1.UserUserToAchievement" FromRole="UserToAchievement" ToRole="User" />
+        </EntityType>
+        <Association Name="AchievementUserToAchievement">
+          <End Type="Model1.Achievement" Role="Achievement" Multiplicity="1" />
+          <End Type="Model1.UserToAchievement" Role="UserToAchievement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Achievement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserToAchievement">
+              <PropertyRef Name="AchievementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserUserToAchievement">
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <End Type="Model1.UserToAchievement" Role="UserToAchievement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserToAchievement">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" />
+          <Property Name="Points" Type="String" Nullable="false" />
+          <Property Name="Image" Type="String" Nullable="false" />
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="QuizId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="QuestionType" Relationship="Model1.QuestionTypeQuestion" FromRole="Question" ToRole="QuestionType" />
+          <NavigationProperty Name="Quiz" Relationship="Model1.QuizQuestion" FromRole="Question" ToRole="Quiz" />
+          <NavigationProperty Name="SequenceTrue" Relationship="Model1.QuestionSequenceTrue" FromRole="Question" ToRole="SequenceTrue" />
+          <NavigationProperty Name="BoolTrue" Relationship="Model1.QuestionBoolTrue" FromRole="Question" ToRole="BoolTrue" />
+          <NavigationProperty Name="DefaultTrue" Relationship="Model1.QuestionDefaultTrue" FromRole="Question" ToRole="DefaultTrue" />
+        </EntityType>
+        <EntityType Name="QuestionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Question" Relationship="Model1.QuestionTypeQuestion" FromRole="QuestionType" ToRole="Question" />
+        </EntityType>
+        <Association Name="QuestionTypeQuestion">
+          <End Type="Model1.QuestionType" Role="QuestionType" Multiplicity="1" />
+          <End Type="Model1.Question" Role="Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuizQuestion">
+          <End Type="Model1.Quiz" Role="Quiz" Multiplicity="1" />
+          <End Type="Model1.Question" Role="Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quiz">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="QuizId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SequenceTrue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Answer1" Type="String" Nullable="false" />
+          <Property Name="Answer2" Type="String" Nullable="false" />
+          <Property Name="Answer3" Type="String" Nullable="false" />
+          <Property Name="Answer4" Type="String" Nullable="false" />
+          <Property Name="QuestionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Question" Relationship="Model1.QuestionSequenceTrue" FromRole="SequenceTrue" ToRole="Question" />
+          <NavigationProperty Name="UserAnswerSequence" Relationship="Model1.SequenceTrueUserAnswerSequence" FromRole="SequenceTrue" ToRole="UserAnswerSequence" />
+        </EntityType>
+        <EntityType Name="BoolTrue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Answer" Type="Boolean" Nullable="false" />
+          <Property Name="QuestionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Question" Relationship="Model1.QuestionBoolTrue" FromRole="BoolTrue" ToRole="Question" />
+          <NavigationProperty Name="UserAnswerBool" Relationship="Model1.BoolTrueUserAnswerBool" FromRole="BoolTrue" ToRole="UserAnswerBool" />
+        </EntityType>
+        <EntityType Name="DefaultTrue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Answer" Type="String" Nullable="false" />
+          <Property Name="Variant1" Type="String" Nullable="false" />
+          <Property Name="Variant2" Type="String" Nullable="false" />
+          <Property Name="Variant3" Type="String" Nullable="false" />
+          <Property Name="Variant4" Type="String" Nullable="false" />
+          <Property Name="QuestionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Question" Relationship="Model1.QuestionDefaultTrue" FromRole="DefaultTrue" ToRole="Question" />
+          <NavigationProperty Name="UserAnswerDefault" Relationship="Model1.DefaultTrueUserAnswerDefault" FromRole="DefaultTrue" ToRole="UserAnswerDefault" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccessCode" Type="String" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SessionStatus" Relationship="Model1.SessionStatusSession" FromRole="Session" ToRole="SessionStatus" />
+          <Property Name="QuizId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Quiz" Relationship="Model1.SessionQuiz" FromRole="Session" ToRole="Quiz" />
+          <NavigationProperty Name="UserToSession" Relationship="Model1.SessionUserToSession" FromRole="Session" ToRole="UserToSession" />
+        </EntityType>
+        <EntityType Name="SessionStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Session" Relationship="Model1.SessionStatusSession" FromRole="SessionStatus" ToRole="Session" />
+        </EntityType>
+        <Association Name="SessionStatusSession">
+          <End Type="Model1.SessionStatus" Role="SessionStatus" Multiplicity="1" />
+          <End Type="Model1.Session" Role="Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SessionStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SessionQuiz">
+          <End Type="Model1.Session" Role="Session" Multiplicity="*" />
+          <End Type="Model1.Quiz" Role="Quiz" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Quiz">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="QuizId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserToSession">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SessionId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Session" Relationship="Model1.SessionUserToSession" FromRole="UserToSession" ToRole="Session" />
+          <NavigationProperty Name="User" Relationship="Model1.UserUserToSession" FromRole="UserToSession" ToRole="User" />
+          <NavigationProperty Name="UserAnswerSequence" Relationship="Model1.UserAnswerSequenceUserToSession" FromRole="UserToSession" ToRole="UserAnswerSequence" />
+          <NavigationProperty Name="UserAnswerBool" Relationship="Model1.UserAnswerBoolUserToSession" FromRole="UserToSession" ToRole="UserAnswerBool" />
+          <NavigationProperty Name="UserAnswerDefault" Relationship="Model1.UserAnswerDefaultUserToSession" FromRole="UserToSession" ToRole="UserAnswerDefault" />
+        </EntityType>
+        <Association Name="SessionUserToSession">
+          <End Type="Model1.Session" Role="Session" Multiplicity="1" />
+          <End Type="Model1.UserToSession" Role="UserToSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserToSession">
+              <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserUserToSession">
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <End Type="Model1.UserToSession" Role="UserToSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserToSession">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserAnswerSequence">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Answer1" Type="String" Nullable="false" />
+          <Property Name="Answer2" Type="String" Nullable="false" />
+          <Property Name="Answer3" Type="String" Nullable="false" />
+          <Property Name="Answer4" Type="String" Nullable="false" />
+          <Property Name="SequenceId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SequenceTrue" Relationship="Model1.SequenceTrueUserAnswerSequence" FromRole="UserAnswerSequence" ToRole="SequenceTrue" />
+          <Property Name="UserSessionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserToSession" Relationship="Model1.UserAnswerSequenceUserToSession" FromRole="UserAnswerSequence" ToRole="UserToSession" />
+        </EntityType>
+        <EntityType Name="UserAnswerBool">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Answer" Type="Boolean" Nullable="false" />
+          <Property Name="BoolId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BoolTrue" Relationship="Model1.BoolTrueUserAnswerBool" FromRole="UserAnswerBool" ToRole="BoolTrue" />
+          <Property Name="UserSessionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserToSession" Relationship="Model1.UserAnswerBoolUserToSession" FromRole="UserAnswerBool" ToRole="UserToSession" />
+        </EntityType>
+        <EntityType Name="UserAnswerDefault">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Answer" Type="String" Nullable="false" />
+          <Property Name="DefaultId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DefaultTrue" Relationship="Model1.DefaultTrueUserAnswerDefault" FromRole="UserAnswerDefault" ToRole="DefaultTrue" />
+          <Property Name="UserSessionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserToSession" Relationship="Model1.UserAnswerDefaultUserToSession" FromRole="UserAnswerDefault" ToRole="UserToSession" />
+        </EntityType>
+        <Association Name="QuestionSequenceTrue">
+          <End Type="Model1.Question" Role="Question" Multiplicity="1" />
+          <End Type="Model1.SequenceTrue" Role="SequenceTrue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SequenceTrue">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuestionBoolTrue">
+          <End Type="Model1.Question" Role="Question" Multiplicity="1" />
+          <End Type="Model1.BoolTrue" Role="BoolTrue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BoolTrue">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuestionDefaultTrue">
+          <End Type="Model1.Question" Role="Question" Multiplicity="1" />
+          <End Type="Model1.DefaultTrue" Role="DefaultTrue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DefaultTrue">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SequenceTrueUserAnswerSequence">
+          <End Type="Model1.SequenceTrue" Role="SequenceTrue" Multiplicity="1" />
+          <End Type="Model1.UserAnswerSequence" Role="UserAnswerSequence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SequenceTrue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserAnswerSequence">
+              <PropertyRef Name="SequenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BoolTrueUserAnswerBool">
+          <End Type="Model1.BoolTrue" Role="BoolTrue" Multiplicity="1" />
+          <End Type="Model1.UserAnswerBool" Role="UserAnswerBool" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BoolTrue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserAnswerBool">
+              <PropertyRef Name="BoolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DefaultTrueUserAnswerDefault">
+          <End Type="Model1.DefaultTrue" Role="DefaultTrue" Multiplicity="1" />
+          <End Type="Model1.UserAnswerDefault" Role="UserAnswerDefault" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DefaultTrue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserAnswerDefault">
+              <PropertyRef Name="DefaultId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserAnswerSequenceUserToSession">
+          <End Type="Model1.UserAnswerSequence" Role="UserAnswerSequence" Multiplicity="*" />
+          <End Type="Model1.UserToSession" Role="UserToSession" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="UserToSession">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserAnswerSequence">
+              <PropertyRef Name="UserSessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserAnswerBoolUserToSession">
+          <End Type="Model1.UserAnswerBool" Role="UserAnswerBool" Multiplicity="*" />
+          <End Type="Model1.UserToSession" Role="UserToSession" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="UserToSession">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserAnswerBool">
+              <PropertyRef Name="UserSessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserAnswerDefaultUserToSession">
+          <End Type="Model1.UserAnswerDefault" Role="UserAnswerDefault" Multiplicity="*" />
+          <End Type="Model1.UserToSession" Role="UserToSession" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="UserToSession">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserAnswerDefault">
+              <PropertyRef Name="UserSessionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -95,6 +1669,14 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.UserRole)">
+        <MappingFragment StoreEntitySet="UserRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="IsTypeOf(Model1.User)">
         <MappingFragment StoreEntitySet="Users">
@@ -104,15 +1686,250 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="ActivateLink" ColumnName="ActivateLink" />
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Roles">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Role)">
-        <MappingFragment StoreEntitySet="Roles">
+    <EntitySetMapping Name="UserStatuses">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.UserStatus)">
+        <MappingFragment StoreEntitySet="UserStatuses">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserFriendsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.UserFriends)">
+        <MappingFragment StoreEntitySet="UserFriendsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="UserIdFrom" ColumnName="UserIdFrom" />
+          <ScalarProperty Name="UserIdTo" ColumnName="UserIdTo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersToChats">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.UserToChat)">
+        <MappingFragment StoreEntitySet="UsersToChats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ChatId" ColumnName="ChatId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chats">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Chat)">
+        <MappingFragment StoreEntitySet="Chats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatMessages">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.ChatMessage)">
+        <MappingFragment StoreEntitySet="ChatMessages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ChatId" ColumnName="ChatId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuizesApproved">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.QuizApproved)">
+        <MappingFragment StoreEntitySet="QuizesApproved">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="QuizId" ColumnName="QuizId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersQuizesResp">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.UserQuizResp)">
+        <MappingFragment StoreEntitySet="UsersQuizesResp">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="QuizId" ColumnName="QuizId" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Favourite" ColumnName="Favourite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quizes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Quiz)">
+        <MappingFragment StoreEntitySet="Quizes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuizStatuses">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.QuizStatus)">
+        <MappingFragment StoreEntitySet="QuizStatuses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuizesToCategories">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.QuizToCategory)">
+        <MappingFragment StoreEntitySet="QuizesToCategories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="QuizId" ColumnName="QuizId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuizCaetgories">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.QuizCaetgory)">
+        <MappingFragment StoreEntitySet="QuizCaetgories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Achievements">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Achievement)">
+        <MappingFragment StoreEntitySet="Achievements">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Decription" ColumnName="Decription" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersToAchievements">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.UserToAchievement)">
+        <MappingFragment StoreEntitySet="UsersToAchievements">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AchievementId" ColumnName="AchievementId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Question)">
+        <MappingFragment StoreEntitySet="Questions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="QuizId" ColumnName="QuizId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.QuestionType)">
+        <MappingFragment StoreEntitySet="QuestionTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SequencesTrue">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.SequenceTrue)">
+        <MappingFragment StoreEntitySet="SequencesTrue">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Answer1" ColumnName="Answer1" />
+          <ScalarProperty Name="Answer2" ColumnName="Answer2" />
+          <ScalarProperty Name="Answer3" ColumnName="Answer3" />
+          <ScalarProperty Name="Answer4" ColumnName="Answer4" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BoolsTrue">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.BoolTrue)">
+        <MappingFragment StoreEntitySet="BoolsTrue">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DefaultsTrue">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.DefaultTrue)">
+        <MappingFragment StoreEntitySet="DefaultsTrue">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Variant1" ColumnName="Variant1" />
+          <ScalarProperty Name="Variant2" ColumnName="Variant2" />
+          <ScalarProperty Name="Variant3" ColumnName="Variant3" />
+          <ScalarProperty Name="Variant4" ColumnName="Variant4" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sessions">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Session)">
+        <MappingFragment StoreEntitySet="Sessions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccessCode" ColumnName="AccessCode" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="QuizId" ColumnName="QuizId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SessionStatuses">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.SessionStatus)">
+        <MappingFragment StoreEntitySet="SessionStatuses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersToSessions">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.UserToSession)">
+        <MappingFragment StoreEntitySet="UsersToSessions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersAnswersSequence">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.UserAnswerSequence)">
+        <MappingFragment StoreEntitySet="UsersAnswersSequence">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Answer1" ColumnName="Answer1" />
+          <ScalarProperty Name="Answer2" ColumnName="Answer2" />
+          <ScalarProperty Name="Answer3" ColumnName="Answer3" />
+          <ScalarProperty Name="Answer4" ColumnName="Answer4" />
+          <ScalarProperty Name="SequenceId" ColumnName="SequenceId" />
+          <ScalarProperty Name="UserSessionId" ColumnName="UserSessionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAnswersBool">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.UserAnswerBool)">
+        <MappingFragment StoreEntitySet="UserAnswersBool">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="BoolId" ColumnName="BoolId" />
+          <ScalarProperty Name="UserSessionId" ColumnName="UserSessionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAnswersDefault">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.UserAnswerDefault)">
+        <MappingFragment StoreEntitySet="UserAnswersDefault">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="DefaultId" ColumnName="DefaultId" />
+          <ScalarProperty Name="UserSessionId" ColumnName="UserSessionId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

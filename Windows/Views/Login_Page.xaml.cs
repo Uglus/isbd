@@ -12,6 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using System.Net;
+using System.Net.Sockets;
+using System.Runtime.Serialization.Formatters.Binary;
+using ClassLibrary;
+using Windows.Commands;
+
 namespace Windows.Views
 {
     /// <summary>
@@ -39,15 +45,36 @@ namespace Windows.Views
 
         private void BtnSignUp_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Owner = this;
+            this.Hide();
+            mainWindow.ShowDialog();
         }
 
         private void loginUserBtn_Click(object sender, RoutedEventArgs e)
         {
-            Menu_Main menu_Main = new Menu_Main();
-            menu_Main.Owner = this;
-            this.Hide();
-            menu_Main.ShowDialog();
+            try
+            {
+                DbCommands commands = new DbCommands();             
+                User user = new User();
+                user.Login = UserNameTextBox.Text;
+                user.Password = UserPasswordTextBlock.Password;
+                user.FuncName = "UserSignIn";
+                user = commands.SendAndReceiveUser(user);
+
+                if (user.Id != 0)
+                {
+
+                    Menu_Main menu_Main = new Menu_Main();
+                    menu_Main.Owner = this;
+                    this.Hide();
+                    menu_Main.ShowDialog();
+
+                }
+            }
+           catch (Exception err) { }
+
+            
         }
     }
 }

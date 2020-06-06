@@ -25,7 +25,31 @@ namespace Server.Data
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<UserStatus> UserStatuses { get; set; }
+        public virtual DbSet<UserFriends> UserFriendsSet { get; set; }
+        public virtual DbSet<UserToChat> UsersToChats { get; set; }
+        public virtual DbSet<Chat> Chats { get; set; }
+        public virtual DbSet<ChatMessage> ChatMessages { get; set; }
+        public virtual DbSet<QuizApproved> QuizesApproved { get; set; }
+        public virtual DbSet<UserQuizResp> UsersQuizesResp { get; set; }
+        public virtual DbSet<Quiz> Quizes { get; set; }
+        public virtual DbSet<QuizStatus> QuizStatuses { get; set; }
+        public virtual DbSet<QuizToCategory> QuizesToCategories { get; set; }
+        public virtual DbSet<QuizCaetgory> QuizCaetgories { get; set; }
+        public virtual DbSet<Achievement> Achievements { get; set; }
+        public virtual DbSet<UserToAchievement> UsersToAchievements { get; set; }
+        public virtual DbSet<Question> Questions { get; set; }
+        public virtual DbSet<QuestionType> QuestionTypes { get; set; }
+        public virtual DbSet<SequenceTrue> SequencesTrue { get; set; }
+        public virtual DbSet<BoolTrue> BoolsTrue { get; set; }
+        public virtual DbSet<DefaultTrue> DefaultsTrue { get; set; }
+        public virtual DbSet<Session> Sessions { get; set; }
+        public virtual DbSet<SessionStatus> SessionStatuses { get; set; }
+        public virtual DbSet<UserToSession> UsersToSessions { get; set; }
+        public virtual DbSet<UserAnswerSequence> UsersAnswersSequence { get; set; }
+        public virtual DbSet<UserAnswerBool> UserAnswersBool { get; set; }
+        public virtual DbSet<UserAnswerDefault> UserAnswersDefault { get; set; }
     }
 }
