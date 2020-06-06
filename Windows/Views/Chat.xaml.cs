@@ -15,21 +15,13 @@ using System.Windows.Shapes;
 namespace Windows.Views
 {
     /// <summary>
-    /// Interaction logic for Play_Quiz.xaml
+    /// Interaction logic for Chat.xaml
     /// </summary>
-    public partial class Play_Quiz : Window
+    public partial class Chat : Window
     {
-        public Play_Quiz()
+        public Chat()
         {
             InitializeComponent();
-        }
-
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if(e.LeftButton == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-            }
         }
     }
 }

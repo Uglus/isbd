@@ -10,16 +10,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.TextFormatting;
 using System.Windows.Shapes;
 
 namespace Windows.Views
 {
     /// <summary>
-    /// Interaction logic for Play_Quiz.xaml
+    /// Interaction logic for Lobby.xaml
     /// </summary>
-    public partial class Play_Quiz : Window
+    public partial class Lobby : Window
     {
-        public Play_Quiz()
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            Application.Current.Shutdown();
+        }
+        public Lobby()
         {
             InitializeComponent();
         }

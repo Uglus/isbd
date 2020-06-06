@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Windows.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Login_Page" Height="600" Width="450" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FF1A2055">
+        Title="Login_Page" Height="600" Width="450" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FF1A2055" >
     <Grid>
         <StackPanel Margin="50">
             <!--<Image Source="" Width="96" Height="96"/>-->

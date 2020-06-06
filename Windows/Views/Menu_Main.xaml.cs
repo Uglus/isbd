@@ -34,28 +34,28 @@ namespace Windows.Views
             menuRegister_Quizz.Add(new SubItem("Play quizz", new UserControlPlayQuizezz()));
             menuRegister_Quizz.Add(new SubItem("Create new quizz", new UserControlProviders()));
 
-            var item0_quizz = new ItemMenu("Quizezz", menuRegister_Quizz, PackIconKind.Abc);
+            var item_quizz = new ItemMenu("Quizezz", menuRegister_Quizz, PackIconKind.Abc);
 
             //!!!!!!!!!!!!
             var menuRegister_Chats = new List<SubItem>();
             menuRegister_Chats.Add(new SubItem("My chats", new UserControlChats1()));
 
-            //var item0_Chats = new ItemMenu("Chats", new UserControl(), PackIconKind.Chat);
+            var item_Chats = new ItemMenu("Chats", new UserControlChats1(), PackIconKind.Chat);
 
             var menuRegister_Friends = new List<SubItem>();
-            //menuRegister_Quizz.Add(new SubItem("My friends"));
+            menuRegister_Quizz.Add(new SubItem("My friends"));
 
-            //var item0_Frieds = new ItemMenu("Friends", new UserControl(), PackIconKind.UsersGroup);
+            var item_Frieds = new ItemMenu("Friends", new UserControl(), PackIconKind.UsersGroup);
 
             var menuRegister_News = new List<SubItem>();
-            //menuRegister_Quizz.Add(new SubItem("My news"));
+            menuRegister_Quizz.Add(new SubItem("My news"));
 
-            //var item0_News = new ItemMenu("News", new UserControl(), PackIconKind.Newspaper);
+            var item_News = new ItemMenu("News", new UserControl(), PackIconKind.Newspaper);
 
-            StackMenu.Children.Add(new UserControlMenuItem(item0_quizz, this));
-            //StackMenu.Children.Add(new UserControlMenuItem(item0_Chats, this));
-            //StackMenu.Children.Add(new UserControlMenuItem(item0_Frieds, this));
-            //StackMenu.Children.Add(new UserControlMenuItem(item0_News, this));
+            StackMenu.Children.Add(new UserControlMenuItem(item_quizz, this));
+            StackMenu.Children.Add(new UserControlMenuItem(item_Chats, this));
+            StackMenu.Children.Add(new UserControlMenuItem(item_Frieds, this));
+            StackMenu.Children.Add(new UserControlMenuItem(item_News, this));
         }
         
         internal void SwitchScreen(object sender)
@@ -66,6 +66,14 @@ namespace Windows.Views
             {
                 StackPanelMain.Children.Clear();
                 StackPanelMain.Children.Add(screen);
+            }
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
             }
         }
     }
