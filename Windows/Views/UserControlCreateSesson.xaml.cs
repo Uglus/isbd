@@ -10,26 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Windows.Views
 {
     /// <summary>
-    /// Interaction logic for NewPassword.xaml
+    /// Interaction logic for UserControlCreateSesson.xaml
     /// </summary>
-    public partial class NewPassword : Window
+    public partial class UserControlCreateSesson : UserControl
     {
-        public NewPassword()
+        public UserControlCreateSesson()
         {
             InitializeComponent();
-        }
-
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if(e.LeftButton == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-            }
         }
     }
 }

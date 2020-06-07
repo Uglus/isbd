@@ -9,9 +9,10 @@
         Title="Lobby" Height="500" Width="600" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown">
     <Grid>
-        <Border CornerRadius="50" Background="#ffcf40" Height="496">
-            <StackPanel>
-                <ListView x:Name="listLobby" Margin="10,10,0,10" Height="429">
+        <Border Background="#ffcf40" Height="496">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Link: " FontSize="16" Margin="467,0,0,0"/>
+                <ListView x:Name="listLobby" Margin="10,10,170,10" Height="400">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="USERS"/>

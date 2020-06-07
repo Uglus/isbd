@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Windows.Views
 {
     /// <summary>
-    /// Interaction logic for NewPassword.xaml
+    /// Interaction logic for Quiz_Final.xaml
     /// </summary>
-    public partial class NewPassword : Window
+    public partial class Quiz_Final : Window
     {
-        public NewPassword()
+        public Quiz_Final()
         {
             InitializeComponent();
         }
