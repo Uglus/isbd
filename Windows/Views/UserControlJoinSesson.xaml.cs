@@ -10,26 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Windows.Views
 {
     /// <summary>
-    /// Interaction logic for NewPassword.xaml
+    /// Interaction logic for UserControlJoinSesson.xaml
     /// </summary>
-    public partial class NewPassword : Window
+    public partial class UserControlJoinSesson : UserControl
     {
-        public NewPassword()
+        public UserControlJoinSesson()
         {
             InitializeComponent();
         }
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        private void btnJonSesson_Click(object sender, RoutedEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-            }
+            Lobby lobby = new Lobby();
+            lobby.ShowDialog();
         }
     }
 }

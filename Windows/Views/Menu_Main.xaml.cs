@@ -31,8 +31,10 @@ namespace Windows.Views
             InitializeComponent();
 
             var menuRegister_Quizz = new List<SubItem>();
-            menuRegister_Quizz.Add(new SubItem("Play quizz", new UserControlPlayQuizezz()));
+            //menuRegister_Quizz.Add(new SubItem("Play quizz", new UserControlPlayQuizezz()));
+            menuRegister_Quizz.Add(new SubItem("Create session", new UserControlCreateSesson()));
             menuRegister_Quizz.Add(new SubItem("Create new quizz", new UserControlProviders()));
+            menuRegister_Quizz.Add(new SubItem("Join session", new UserControlJoinSesson()));
 
             var item_quizz = new ItemMenu("Quizezz", menuRegister_Quizz, PackIconKind.Abc);
 
@@ -45,7 +47,7 @@ namespace Windows.Views
             var menuRegister_Friends = new List<SubItem>();
             menuRegister_Quizz.Add(new SubItem("My friends"));
 
-            var item_Frieds = new ItemMenu("Friends", new UserControl(), PackIconKind.UsersGroup);
+            var item_Friends = new ItemMenu("Friends", new UserControl(), PackIconKind.UsersGroup);
 
             var menuRegister_News = new List<SubItem>();
             menuRegister_Quizz.Add(new SubItem("My news"));
@@ -54,7 +56,7 @@ namespace Windows.Views
 
             StackMenu.Children.Add(new UserControlMenuItem(item_quizz, this));
             StackMenu.Children.Add(new UserControlMenuItem(item_Chats, this));
-            StackMenu.Children.Add(new UserControlMenuItem(item_Frieds, this));
+            StackMenu.Children.Add(new UserControlMenuItem(item_Friends, this));
             StackMenu.Children.Add(new UserControlMenuItem(item_News, this));
         }
         

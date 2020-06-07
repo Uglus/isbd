@@ -88,8 +88,17 @@
     <Compile Include="Views\Play_Quiz.xaml.cs">
       <DependentUpon>Play_Quiz.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Quiz_Final.xaml.cs">
+      <DependentUpon>Quiz_Final.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControlChats1.xaml.cs">
       <DependentUpon>UserControlChats1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControlCreateSesson.xaml.cs">
+      <DependentUpon>UserControlCreateSesson.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControlJoinSesson.xaml.cs">
+      <DependentUpon>UserControlJoinSesson.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControlMenuItem.xaml.cs">
       <DependentUpon>UserControlMenuItem.xaml</DependentUpon>
@@ -147,7 +156,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Quiz_Final.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControlChats1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControlCreateSesson.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControlJoinSesson.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
