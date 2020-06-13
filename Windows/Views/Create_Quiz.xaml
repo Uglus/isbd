@@ -12,7 +12,7 @@
 
         <StackPanel Orientation="Horizontal" Margin="0,0,0,555" Background="#FF8C00">
             <TextBox x:Name="boxScore" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Score: " Width="192" FontSize="18"/>
-            <Button x:Name="btnFormCancel" Content="cancel" FontSize="16" Click="btnFormCancel_Click" Margin="0,22,0,21" Width="94"/>
+            <!--<Button x:Name="btnFormCancel" Content="cancel" FontSize="16" Click="btnFormCancel_Click" Margin="0,22,0,21" Width="94"/>-->
         </StackPanel>
 
         <StackPanel>
@@ -21,7 +21,7 @@
 
         <!--<StackPanel Margin="50,10">-->
         <!--<Image Source="" Width="96" Height="96"/>-->
-        <Border Background="#ffcf40" Margin="10,110,10,10" CornerRadius="5">
+        <Border Background="#ffcf40" Margin="10,101,10,10" CornerRadius="5">
             <StackPanel Margin="25">
                 <ComboBox x:Name="comboOfTypeQuestion" Margin="15" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Choose type of question: " Height="40">
                     <ComboBoxItem Content="True or False" />
@@ -49,14 +49,14 @@
                 </StackPanel>
 
                 <StackPanel Margin="35" Orientation="Horizontal" HorizontalAlignment="Left">
-                    <RadioButton Content="1" Width="70" Height="26" />
-                    <!--<TextBox x:Name="boxVariant1" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />-->
-                    <RadioButton Content="2" Width="70" Height="26"/>
-                    <!--<TextBox x:Name="boxVariant2" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />-->
-                    <RadioButton Content="3" Width="71" Height="26"/>
-                    <!--<TextBox x:Name="boxVariant3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>-->
-                    <RadioButton Content="4" Width="71" Height="26" />
-                    <!--<TextBox x:Name="boxVariant4" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>-->
+                    <RadioButton Content="1" Width="50" Height="26" />
+                    <TextBox x:Name="boxVariant1" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />
+                    <RadioButton Content="2" Width="50" Height="26"/>
+                    <TextBox x:Name="boxVariant2" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />
+                    <RadioButton Content="3" Width="50" Height="26"/>
+                    <TextBox x:Name="boxVariant3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>
+                    <RadioButton Content="4" Width="50" Height="26" />
+                    <TextBox x:Name="boxVariant4" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>
                 </StackPanel>
 
 
