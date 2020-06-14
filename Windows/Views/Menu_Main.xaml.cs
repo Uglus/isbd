@@ -54,10 +54,13 @@ namespace Windows.Views
 
             var item_News = new ItemMenu("News", new UserControl(), PackIconKind.Newspaper);
 
+            //var item_Profile = new ItemMenu("Profile", new UserControlSettngsUser(), PackIconKind.User);
+
             StackMenu.Children.Add(new UserControlMenuItem(item_quizz, this));
             StackMenu.Children.Add(new UserControlMenuItem(item_Chats, this));
             StackMenu.Children.Add(new UserControlMenuItem(item_Friends, this));
             StackMenu.Children.Add(new UserControlMenuItem(item_News, this));
+            //StackMenu.Children.Add(new UserControlMenuItem(item_Profile, this));
         }
         
         internal void SwitchScreen(object sender)
@@ -76,6 +79,30 @@ namespace Windows.Views
             if(e.LeftButton == MouseButtonState.Pressed)
             {
                 this.DragMove();
+            }
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                //UserControlSettngsUser user_settings = new UserControlSettngsUser();
+                //user_settings.ShowDialog();
+                Settngs_User settngs_User = new Settngs_User();
+                settngs_User.Owner = this;
+                //this.Hide();
+                settngs_User.ShowDialog();
+            }
+        }
+
+        private void Label_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Settngs_User settngs_User = new Settngs_User();
+                settngs_User.Owner = this;
+                //this.Hide();
+                settngs_User.ShowDialog();
             }
         }
     }

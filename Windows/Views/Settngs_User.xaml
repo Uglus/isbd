@@ -1,0 +1,42 @@
+﻿<Window x:Class="Windows.Views.Settngs_User"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Windows.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Settngs_User" Height="700" Width="450" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown" Background="#192060">
+    <Grid>
+        <StackPanel Margin="50,10">
+            <Image Source="../Images/brain_logo2.png" Height="83" Margin="110,0"/>
+            <Border Background="White" Margin="10, 20" CornerRadius="5" Height="557">
+                <StackPanel Margin="25">
+                    <TextBox x:Name="UserNameTextBox" Margin="15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Nickname"/>
+                    <TextBox x:Name="boxNameUser" Margin="15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Name"/>
+                    <TextBox x:Name="boEmailUser" Margin="15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Email"/>
+
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="10">
+                        <Button x:Name="btnChangePass" Click="btnChangePass_Click" Margin="15,10" Content="Change Password" FontSize="16" Width="194" />
+                        <Button x:Name="btnChangeLanguage" Click="btnChangeLanguage_Click" Margin="15,10" Width="194" Content="Change Language" FontSize="16" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <Label x:Name="labelMusic" Content="Background Sound" FontSize="14" Width="138" />
+                        <local:UserControlToggleButton x:Name="btnToggle" HorizontalAlignment="Center" VerticalAlignment="Center" Width="82" MouseLeftButtonDown="btnToggle_MouseLeftButtonDown" Height="36"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+                        <ListView ScrollViewer.CanContentScroll="True" x:Name="list" Width="282" Height="145">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="ACHIEVEMENTS" Width="150"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>
