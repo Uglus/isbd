@@ -48,6 +48,7 @@ namespace Server
             try {
                 DataManager dm = new DataManager();
                 User userType = new User();
+                Quiz quizType = new Quiz();
                 await Task.Run(() => {
                     while(true)
                     {
@@ -89,9 +90,29 @@ namespace Server
                                 bf.Serialize(ns, user);
                             }
                         }
+                        else if(item.GetType() == quizType.GetType())
+                        {
+                            Quiz quiz = (Quiz)item;
+                            if(quiz.FuncName == "QuizQuestionsAdd")
+                            {
+                                Console.WriteLine("quiz - QuizQuestionsAdd");
+                                dm.QuizQuestionsAdd(quiz);
+                            }
+                            if(quiz.FuncName == "QuizInit")
+                            {
+                                Console.WriteLine("quiz - QuizInit");
+                                quiz = dm.QuizInit(quiz);
+                                bf.Serialize(ns, quiz);
+                            }
+                            if(quiz.FuncName == "QuizGetAll")
+                            {
+                                Console.WriteLine("quiz - QuizGetAll");
+                                List<Quiz> quizes = dm.QuizGetAll();
+                                bf.Serialize(ns, quizes);
+                            }
+                        }
 
-                        //
-                        //
+
                         Console.WriteLine($"   >>>Done! {handler.Client.LocalEndPoint}");
                         ns.Close();
                         handler.Close();

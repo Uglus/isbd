@@ -13,6 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using ClassLibrary;
+using Windows.Commands;
+using System.IO;
+
 namespace Windows.Views
 {
     /// <summary>
@@ -20,14 +24,18 @@ namespace Windows.Views
     /// </summary>
     public partial class NewPassword : Window
     {
+        public User UserSet { get; set; }
+
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
             Application.Current.Shutdown();
         }
-        public NewPassword()
+
+        public NewPassword(User user)
         {
             InitializeComponent();
+            UserSet = user;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -39,6 +47,40 @@ namespace Windows.Views
         }
 
         private void letsGoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(boxOldPass.Password == UserSet.Password)
+            {
+                if(NewPasswordTexBox.Password == ConfirmPasswordTextBox.Password)
+                {
+                    UserSet.Password = NewPasswordTexBox.Password;
+                    DbCommands cmd = new DbCommands();
+                    UserSet.FuncName = "UserEdit";
+                    cmd.SendUser(UserSet);
+
+                    const string filePathUser = @"../../Data/User.bin";
+                    if (File.Exists(filePathUser)) //Якщо юзер користувався функцією автологіна
+                    {
+                        File.Delete(filePathUser);
+                    }
+
+                    MessageBox.Show("Пароль змінено!");
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Нові паролі не співпадають");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Неправильний старий пароль");
+            }
+            
+
+            
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
         }

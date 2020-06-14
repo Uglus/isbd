@@ -55,5 +55,68 @@ namespace Windows.Commands
             catch (Exception err) { }
         }
 
+        public Quiz SendAndReceiveQuiz(Quiz quiz)
+        {
+            try
+            {
+                TcpClient client = new TcpClient();
+                client.Connect(ip, port);
+
+                NetworkStream ns = client.GetStream();
+                BinaryFormatter bf = new BinaryFormatter();
+
+                bf.Serialize(ns, quiz);
+                quiz = (Quiz)bf.Deserialize(ns);
+
+                ns.Close();
+                client.Close();
+            }
+            catch (Exception err) { }
+
+            return quiz;
+        }
+
+        public Quiz SendQuiz(Quiz quiz)
+        {
+            try
+            {
+                TcpClient client = new TcpClient();
+                client.Connect(ip, port);
+
+                NetworkStream ns = client.GetStream();
+                BinaryFormatter bf = new BinaryFormatter();
+
+                bf.Serialize(ns, quiz);
+
+                ns.Close();
+                client.Close();
+            }
+            catch (Exception err) { }
+
+            return quiz;
+        }
+
+        public List<Quiz> SendAndReceiveQuizList(Quiz quiz)
+        {
+            List<Quiz> quizes = new List<Quiz>();
+            try
+            {
+                TcpClient client = new TcpClient();
+                client.Connect(ip, port);
+
+                NetworkStream ns = client.GetStream();
+                BinaryFormatter bf = new BinaryFormatter();
+
+                bf.Serialize(ns, quiz);
+                quizes = (List<Quiz>)bf.Deserialize(ns);
+
+                ns.Close();
+                client.Close();
+            }
+            catch (Exception err) { }
+
+            return quizes;
+        }
+
     }
 }

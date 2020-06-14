@@ -21,6 +21,7 @@
         <materialDesign:ColorZone Mode="PrimaryMid" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
             <Grid>
                 <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right" Margin="10" />
+                <Button x:Name="btnFormClose" Content="Exit" Click="BtnFormClose_Click" Margin="689,7,10,7"/>
             </Grid>
         </materialDesign:ColorZone>
         <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="#192060">
@@ -30,9 +31,9 @@
                 <RowDefinition Height="326"/>
             </Grid.RowDefinitions>
             <Image Grid.Row="0" Source="../Images/brain_logo.png" Margin="0,0,0,63" Grid.RowSpan="2"/>
-            <StackPanel x:Name="panelProfile"  Grid.Row="1" MouseDown="PanelProfile_MouseDown">
-                <Image x:Name="imgUser" Grid.Row="1" Source="../Images/user_logo.png" Margin="10,0,179,11"  />
-                <Label x:Name="labelNick" Grid.Row="1" Content="nickname" FontSize="23" Margin="80,-60,10,0" Foreground="White"/>
+            <StackPanel x:Name="panelProfile"  Grid.Row="1" MouseDown="PanelProfile_MouseDown" Margin="10, 10,10,10">
+                <Image x:Name="imgUser" Grid.Row="1" Source="../Images/user_logo.png" Margin="10,0,179,11" Height="54"  />
+                <Label x:Name="labelNick" Grid.Row="1" Content="nickname" FontSize="18" Margin="62,-60,36,0" Foreground="White" Height="46"/>
             </StackPanel>
 
             <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="2">

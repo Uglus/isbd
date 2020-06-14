@@ -13,7 +13,7 @@
             <Label Content="FINAL OF GAME" FontSize="25" Height="54" Margin="130,0,120,0"/>
         </StackPanel>
         <StackPanel Margin="40,34,40,40">
-            <Border Background="#ffcf40" Margin="10, 20" CornerRadius="10" Height="495">
+            <Border Background="#F1CA2C" Margin="10, 20" CornerRadius="10" Height="495">
                 <ListView>
                     <ListView.View>
                         <GridView>
