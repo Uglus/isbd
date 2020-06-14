@@ -19,6 +19,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
+using Windows.Commands;
 
 namespace Windows
 {
@@ -27,6 +28,8 @@ namespace Windows
     /// </summary>
     public partial class MainWindow : Window
     {
+        DbCommands commands = new DbCommands();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -44,8 +47,18 @@ namespace Windows
             string email = EmailTexBox.Text;
             string passw = PasswordTexBox.Password;
             DateTime regDate = DateTime.Now;
-            User userSignUp = new User(0, name, login, email, passw, regDate, 1, 2, "UserSignUp");
 
+            User userSignUp = new User()
+            {
+                Name = name, Login = login,
+                Email = email, Password = passw,
+                RegistrationDate = regDate,RoleId = 1,
+                StatusId = 2, FuncName = "UserSignUp"
+            };
+
+            commands.SendUser(userSignUp);
+            //User userSignUp = new User(0, name, login, email, passw, regDate, 1, 2, "UserSignUp");
+            /*
             string ipConnect = "127.0.0.1";
             int port = 1488;
             IPAddress ip = IPAddress.Parse(ipConnect);
@@ -58,7 +71,7 @@ namespace Windows
 
             ns.Close();
             client.Close();
-            
+            */
 
             Login_Page lg = new Login_Page();
             lg.Owner = this;

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using ClassLibrary;
+
 namespace Windows.Views
 {
     /// <summary>
@@ -19,6 +21,8 @@ namespace Windows.Views
     /// </summary>
     public partial class Create_Quiz : Window
     {
+        public Quiz quiz { get; set; }
+
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
@@ -27,6 +31,12 @@ namespace Windows.Views
 
         public Create_Quiz()
         {
+            InitializeComponent();
+        }
+
+        public Create_Quiz(Quiz q)
+        {
+            quiz = q;
             InitializeComponent();
         }
 
@@ -41,6 +51,20 @@ namespace Windows.Views
         private void btnFormCancel_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void BtnCreateQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            Question question = new Question()
+            {
+                QuizId = quiz.Id,
+                TypeId = comboOfTypeQuestion.SelectedIndex,
+                Text = boxTrueFalse.Text,
+                Points = boxScore.Text,
+
+            };
+
+            quiz.Question.Add(question);
         }
     }
 }

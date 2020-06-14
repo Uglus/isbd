@@ -17,6 +17,7 @@ using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using ClassLibrary;
 using Windows.Commands;
+using System.IO;
 
 namespace Windows.Views
 {
@@ -25,14 +26,20 @@ namespace Windows.Views
     /// </summary>
     public partial class Login_Page : Window
     {
+       // public User user { get; set; }
+        const string filePathUser = @"../../Data/User.bin";
+
+
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
             Application.Current.Shutdown();
         }
+
         public Login_Page()
         {
             InitializeComponent();
+            AutoLogin();// Зчитування логіну і пароля з файлу
         }
 
         private void ForgotPasswordBtn_Click(object sender, RoutedEventArgs e)
@@ -55,26 +62,24 @@ namespace Windows.Views
         {
             try
             {
-                DbCommands commands = new DbCommands();             
+                DbCommands commands = new DbCommands();
                 User user = new User();
                 user.Login = UserNameTextBox.Text;
                 user.Password = UserPasswordTextBlock.Password;
                 user.FuncName = "UserSignIn";
                 user = commands.SendAndReceiveUser(user);
 
+                if (rememberUserRadioBtn.IsChecked == true)
+                {
+                    SaveUser(user); //Збереження юзера в файл
+                }
+
                 if (user.Id != 0)
                 {
-
-                    Menu_Main menu_Main = new Menu_Main();
-                    menu_Main.Owner = this;
-                    this.Hide();
-                    menu_Main.ShowDialog();
-
+                    GoToMainWindow(user);
                 }
             }
-           catch (Exception err) { }
-
-            
+           catch (Exception err) { MessageBox.Show(err.Message); } 
         }
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
@@ -84,5 +89,44 @@ namespace Windows.Views
                 this.DragMove();
             }
         }
+
+        private async void SaveUser(User user)
+        {
+            await Task.Run(() => {
+                Stream SaveFileStream = File.Create(filePathUser);
+                BinaryFormatter bf = new BinaryFormatter();
+                bf.Serialize(SaveFileStream,user);
+                SaveFileStream.Close();
+
+            });
+        }
+
+        private void AutoLogin()
+        {
+            if (File.Exists(filePathUser))
+            {
+                Stream openFS = File.OpenRead(filePathUser);
+                BinaryFormatter bf = new BinaryFormatter();
+                User user = new User();
+                user = (User)bf.Deserialize(openFS);
+                openFS.Close();
+
+                UserNameTextBox.Text = user.Login;
+                UserPasswordTextBlock.Password = user.Password;
+
+                //GoToMainWindow(user);
+
+            }
+        }
+
+        private void GoToMainWindow(User userLogin)
+        {
+            Menu_Main menu_Main = new Menu_Main(userLogin);
+            menu_Main.Owner = this;
+
+            this.Hide();
+            menu_Main.ShowDialog();
+        }
+
     }
 }

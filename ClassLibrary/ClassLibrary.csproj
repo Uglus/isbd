@@ -41,9 +41,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Role.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Achievement.cs" />
+    <Compile Include="BoolTrue.cs" />
+    <Compile Include="Chat.cs" />
+    <Compile Include="ChatMessage.cs" />
+    <Compile Include="DefaultTrue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Question.cs" />
+    <Compile Include="QuestionType.cs" />
+    <Compile Include="Quiz.cs" />
+    <Compile Include="QuizApproved.cs" />
+    <Compile Include="QuizCaetgory.cs" />
+    <Compile Include="QuizStatus.cs" />
+    <Compile Include="QuizToCategory.cs" />
+    <Compile Include="SequenceTrue.cs" />
+    <Compile Include="Session.cs" />
+    <Compile Include="SessionStatus.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserAnswerBool.cs" />
+    <Compile Include="UserAnswerDefault.cs" />
+    <Compile Include="UserAnswerSequence.cs" />
+    <Compile Include="UserFriends.cs" />
+    <Compile Include="UserQuizResp.cs" />
+    <Compile Include="UserRole.cs" />
+    <Compile Include="UserStatus.cs" />
+    <Compile Include="UserToAchievement.cs" />
+    <Compile Include="UserToChat.cs" />
+    <Compile Include="UserToSession.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
