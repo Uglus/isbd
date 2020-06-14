@@ -19,7 +19,7 @@ namespace ClassLibrary
         public string Image { get; set; }
         public int TypeId { get; set; }
         public int QuizId { get; set; }
-    
+
         public virtual QuestionType QuestionType { get; set; }
         public virtual Quiz Quiz { get; set; }
         public virtual ICollection<SequenceTrue> SequenceTrue { get; set; }

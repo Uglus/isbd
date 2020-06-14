@@ -6,34 +6,38 @@
         xmlns:local="clr-namespace:Windows.Views"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Settngs_User" Height="700" Width="450" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Title="Settngs_User" Height="800" Width="450" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown" Background="#192060">
-    <Grid>
+    <Grid Margin="0,0,0,-19">
         <StackPanel Margin="50,10">
-            <Image Source="../Images/brain_logo2.png" Height="83" Margin="110,0"/>
-            <Border Background="White" Margin="10, 20" CornerRadius="5" Height="557">
+            <Image Source="../Images/brain_logo2.png" Height="83" Margin="100,0,112,0"/>
+            <Border Background="White" Margin="10, 20" CornerRadius="5" Height="680">
                 <StackPanel Margin="25">
+                    <Image x:Name="imgUserImage" Width="100" Height="100" MouseLeftButtonDown="ImgUserImage_MouseLeftButtonDown" Source="../Images/user_logo.png"/>
                     <TextBox x:Name="UserNameTextBox" Margin="15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Nickname"/>
                     <TextBox x:Name="boxNameUser" Margin="15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Name"/>
                     <TextBox x:Name="boEmailUser" Margin="15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Email"/>
 
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="10">
+                        <ComboBox x:Name="comboLangChange" Margin="0,20,0,0" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Choose language" Height="43" >
+                            <ComboBoxItem Content="Englsh"/>
+                            <ComboBoxItem Content="Українська"/>
+                        </ComboBox>
                         <Button x:Name="btnChangePass" Click="btnChangePass_Click" Margin="15,10" Content="Change Password" FontSize="16" Width="194" />
-                        <Button x:Name="btnChangeLanguage" Click="btnChangeLanguage_Click" Margin="15,10" Width="194" Content="Change Language" FontSize="16" />
+                        <Button x:Name="btnSettingsSave" Click="btnSettingsSave_Click" Margin="15,10" Width="194" Content="Save Settings" FontSize="16" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" >
                         <Label x:Name="labelMusic" Content="Background Sound" FontSize="14" Width="138" />
                         <local:UserControlToggleButton x:Name="btnToggle" HorizontalAlignment="Center" VerticalAlignment="Center" Width="82" MouseLeftButtonDown="btnToggle_MouseLeftButtonDown" Height="36"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
-                        <ListView ScrollViewer.CanContentScroll="True" x:Name="list" Width="282" Height="145">
+                        <ListView ScrollViewer.CanContentScroll="True" x:Name="list" Width="282" Height="100">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="ACHIEVEMENTS" Width="150"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>
-
                     </StackPanel>
                 </StackPanel>
             </Border>

@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ClassLibrary;
+using Windows.Commands;
+
 namespace Windows.Views
 {
     /// <summary>
@@ -23,6 +26,22 @@ namespace Windows.Views
         public UserControlCreateSesson()
         {
             InitializeComponent();
+            LoadData();
         }
+
+        private void LoadData()
+        {
+            DbCommands cmd = new DbCommands();
+            Quiz quiz = new Quiz();
+            quiz.FuncName = "QuizGetAll";
+            List<Quiz> quizes = cmd.SendAndReceiveQuizList(quiz);
+            viewPlayQuizezz.ItemsSource = quizes;
+            foreach (Quiz q in quizes.ToList())
+            {
+                viewPlayQuizezz.Items.Add(q); 
+            }
+            
+        }
+
     }
 }

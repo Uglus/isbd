@@ -13,6 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using ClassLibrary;
+using Windows.Commands;
+using Microsoft.Win32;
+using System.IO;
+
 
 namespace Windows.Views
 {
@@ -22,6 +26,7 @@ namespace Windows.Views
     public partial class Settngs_User : Window
     {
         public User UserSet { get; set; }
+        BitmapImage image = new BitmapImage();
 
         SolidColorBrush Off = new SolidColorBrush(Color.FromRgb(0, 0, 0));
         SolidColorBrush On = new SolidColorBrush(Color.FromRgb(240, 222, 45));
@@ -51,7 +56,7 @@ namespace Windows.Views
 
         private void btnChangePass_Click(object sender, RoutedEventArgs e)
         {
-            NewPassword newPassword = new NewPassword();
+            NewPassword newPassword = new NewPassword(UserSet);
             newPassword.Owner = this;
             this.Hide();
             newPassword.ShowDialog();
@@ -76,6 +81,29 @@ namespace Windows.Views
         private void list_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
         {
 
+        }
+
+        private void btnSettingsSave_Click(object sender, RoutedEventArgs e)
+        {
+            DbCommands cmd = new DbCommands();
+            UserSet.Login = UserNameTextBox.Text;
+            UserSet.Name = boxNameUser.Text;
+            UserSet.Email = boEmailUser.Text;
+            UserSet.FuncName = "UserEdit";
+            cmd.SendUser(UserSet);
+            MessageBox.Show("Зміни збережені!");
+            this.Hide();
+        }
+
+        private void ImgUserImage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Image files (*.JPG, *.PNG,)|*.jpg;*.png;";
+            if (opf.ShowDialog() == true)
+            {
+                imgUserImage.Source = new BitmapImage(new Uri(opf.FileName));
+                image = new BitmapImage(new Uri(opf.FileName));
+            }
         }
     }
 }

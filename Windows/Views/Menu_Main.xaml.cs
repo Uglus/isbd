@@ -39,36 +39,19 @@ namespace Windows.Views
             LoadData(userLogin);
 
             var menuRegister_Quizz = new List<SubItem>();
-            //menuRegister_Quizz.Add(new SubItem("Play quizz", new UserControlPlayQuizezz()));
             menuRegister_Quizz.Add(new SubItem("Create session", new UserControlCreateSesson()));
-            menuRegister_Quizz.Add(new SubItem("Create new quizz", new UserControlProviders()));
+            menuRegister_Quizz.Add(new SubItem("Create new quizz", new UserControlProviders(user)));
             menuRegister_Quizz.Add(new SubItem("Join session", new UserControlJoinSesson()));
 
             var item_quizz = new ItemMenu("Quizezz", menuRegister_Quizz, PackIconKind.Abc);
 
-            //!!!!!!!!!!!!
-            var menuRegister_Chats = new List<SubItem>();
-            menuRegister_Chats.Add(new SubItem("My chats", new UserControlChats1()));
-
-            var item_Chats = new ItemMenu("Chats", new UserControlChats1(), PackIconKind.Chat);
-
             var menuRegister_Friends = new List<SubItem>();
             menuRegister_Quizz.Add(new SubItem("My friends"));
-
-            var item_Friends = new ItemMenu("Friends", new UserControl(), PackIconKind.UsersGroup);
-
-            var menuRegister_News = new List<SubItem>();
-            menuRegister_Quizz.Add(new SubItem("My news"));
-
-            var item_News = new ItemMenu("News", new UserControl(), PackIconKind.Newspaper);
 
             //var item_Profile = new ItemMenu("Profile", new UserControlSettngsUser(), PackIconKind.User);
 
             StackMenu.Children.Add(new UserControlMenuItem(item_quizz, this));
-            StackMenu.Children.Add(new UserControlMenuItem(item_Chats, this));
-            StackMenu.Children.Add(new UserControlMenuItem(item_Friends, this));
-            StackMenu.Children.Add(new UserControlMenuItem(item_News, this));
-            //StackMenu.Children.Add(new UserControlMenuItem(item_Profile, this)); 
+            
         }
 
         public void LoadData(User user)
@@ -107,5 +90,10 @@ namespace Windows.Views
                 settngs_User.ShowDialog();
             }
         }
+
+        private void BtnFormClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }  
     }
 }

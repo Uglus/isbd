@@ -23,6 +23,8 @@ namespace ClassLibrary
         public int StatusId { get; set; }
         public int UserId { get; set; }
     
+        public string FuncName { get; set; }
+
         public virtual ICollection<QuizApproved> QuizApproved { get; set; }
         public virtual ICollection<UserQuizResp> UserQuizResp { get; set; }
         public virtual User User { get; set; }

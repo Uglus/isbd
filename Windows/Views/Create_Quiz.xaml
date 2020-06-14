@@ -10,7 +10,7 @@
         MouseDown="Window_MouseDown">
     <Grid>
 
-        <StackPanel Orientation="Horizontal" Margin="0,0,0,555" Background="#FF8C00">
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,555" Background="#F1CA2C">
             <TextBox x:Name="boxScore" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Score: " Width="192" FontSize="18"/>
             <!--<Button x:Name="btnFormCancel" Content="cancel" FontSize="16" Click="btnFormCancel_Click" Margin="0,22,0,21" Width="94"/>-->
         </StackPanel>
@@ -21,23 +21,23 @@
 
         <!--<StackPanel Margin="50,10">-->
         <!--<Image Source="" Width="96" Height="96"/>-->
-        <Border Background="#ffcf40" Margin="10,101,10,10" CornerRadius="5">
+        <Border Background="#F1CA2C" Margin="10,101,10,10" CornerRadius="5">
             <StackPanel Margin="25">
-                <ComboBox x:Name="comboOfTypeQuestion" Margin="15" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Choose type of question: " Height="40">
-                    <ComboBoxItem Content="True or False" />
+                <ComboBox x:Name="comboOfTypeQuestion" SelectionChanged="ComboOfTypeQuestion_SelectionChanged" Margin="15" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Choose type of question: " Height="40">
                     <ComboBoxItem Content="Sequence" />
+                    <ComboBoxItem Content="True or False" />
                     <ComboBoxItem Content="Variant" />
                 </ComboBox>
 
-                <TextBox x:Name="boxTrueFalse" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Enter Question: "/>
-                <StackPanel Orientation="Vertical" Margin="0,0,577,0"  >
-                    <RadioButton Content="True" Height="55" Width="48" />
-                    <RadioButton Content="False" Height="19" Width="48" />
+                <TextBox x:Name="boxTrueFalse" Visibility="Collapsed" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Enter Question: "/>
+                <StackPanel x:Name="panelBool" Visibility="Collapsed" Orientation="Vertical" Margin="0,0,577,0"  >
+                    <RadioButton x:Name="radioTrue" Content="True" Height="55" Width="48" />
+                    <RadioButton x:Name="radioFalse" Content="False" Height="19" Width="48" />
                 </StackPanel>
 
                 <!-- Sequence >-->
 
-                <StackPanel Margin="10,35,0,35" Orientation="Horizontal" HorizontalAlignment="Left" Width="710">
+                <StackPanel x:Name="panelSequence" Visibility="Collapsed" Margin="10,35,0,35" Orientation="Horizontal" HorizontalAlignment="Left" Width="710">
                     <Label Content="1:" Width="45" Height="26" />
                     <TextBox x:Name="boxSequence1"  Height="30" Width="130" />
                     <Label Content="2:" Width="45" Height="26"/>
@@ -48,22 +48,22 @@
                     <TextBox x:Name="boxSequence4" Height="30" Width="130"/>
                 </StackPanel>
 
-                <StackPanel Margin="35" Orientation="Horizontal" HorizontalAlignment="Left">
-                    <RadioButton Content="1" Width="50" Height="26" />
+                <StackPanel x:Name="panelVariant" Visibility="Collapsed" Margin="35" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <RadioButton x:Name="radioVar1" Content="1" Width="50" Height="26" />
                     <TextBox x:Name="boxVariant1" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />
-                    <RadioButton Content="2" Width="50" Height="26"/>
+                    <RadioButton x:Name="radioVar2" Content="2" Width="50" Height="26"/>
                     <TextBox x:Name="boxVariant2" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />
-                    <RadioButton Content="3" Width="50" Height="26"/>
+                    <RadioButton x:Name="radioVar3" Content="3" Width="50" Height="26"/>
                     <TextBox x:Name="boxVariant3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>
-                    <RadioButton Content="4" Width="50" Height="26" />
+                    <RadioButton x:Name="radioVar4" Content="4" Width="50" Height="26" />
                     <TextBox x:Name="boxVariant4" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>
                 </StackPanel>
 
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                    <Button x:Name="btnCreateQuestion" Margin="15,10" Content="OK!" FontSize="16" Width="194" Click="BtnCreateQuestion_Click" />
-                    <Button x:Name="btnFormForward" Content="FORWARD" Margin="15,10" FontSize="16" Width="185"/>
-                    <Button x:Name="btnFormBack" Content="BACK" Margin="15,10" FontSize="16" Width="185"/>
+                    <Button Visibility="Collapsed" x:Name="btnCreateQuestion" Margin="15,10" Content="OK!" FontSize="16" Width="194" Click="BtnCreateQuestion_Click" />
+                    <!--<Button x:Name="btnFormForward" Content="FORWARD" Margin="15,10" FontSize="16" Width="185"/>-->
+                    <!--<Button x:Name="btnFormBack" Content="BACK" Margin="15,10" FontSize="16" Width="185"/> -->
                 </StackPanel>
             </StackPanel>
         </Border>

@@ -18,21 +18,13 @@
         </Grid.RowDefinitions>-->
 
 
-        <StackPanel Orientation="Horizontal" Margin="0,0,0,504" Background="#FF8C00">
-            <Button  x:Name="btnPauseQuiz"  Background="Transparent" Height="Auto" Margin="0,10" Width="68">
-                <Button.Content>
-                    <Image Source="../Images/pause_btn.png" />
-                </Button.Content>
-            </Button>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,504" Background="#F1CA2C">
         </StackPanel>
 
-        <Border Background="#bada55" Margin="10,104,10,10" CornerRadius="5" Width="779" Grid.RowSpan="2">
+        <Border Background="#F1CA2C" Margin="10,104,10,10" CornerRadius="5" Width="779" Grid.RowSpan="2">
             <StackPanel>
-                <!--<TextBox x:Name="boxQuestion" Background="Transparent" materialDesign:HintAssist.Hint="Here Question: "/>-->
-                <!--<TextBox x:Name="boxTrueFalse" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Here Question: "/>-->
                 <TextBox x:Name="boxTrueFalse" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Enter Question: " Height="69"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="699,0,0,0">
-                    <Button x:Name="btnSkipQuest" Content="SKIP" Width="77" Height="27" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,0,577,0"  >
                     <RadioButton Content="True" Height="55" Width="48" />
@@ -91,13 +83,13 @@
 
                 <StackPanel Margin="35" Orientation="Horizontal" HorizontalAlignment="Left">
                     <RadioButton Content="1" Width="70" Height="26" />
-                    <!--<TextBox x:Name="boxVariant1" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />-->
+                    <TextBox x:Name="boxVariant1" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />
                     <RadioButton Content="2" Width="70" Height="26"/>
-                    <!--<TextBox x:Name="boxVariant2" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />-->
+                    <TextBox x:Name="boxVariant2" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86" />
                     <RadioButton Content="3" Width="71" Height="26"/>
-                    <!--<TextBox x:Name="boxVariant3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>-->
+                    <TextBox x:Name="boxVariant3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>
                     <RadioButton Content="4" Width="71" Height="26" />
-                    <!--<TextBox x:Name="boxVariant4" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>-->
+                    <TextBox x:Name="boxVariant4" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" Height="30" Width="86"/>
                 </StackPanel>
 
 

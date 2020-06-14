@@ -123,7 +123,108 @@ namespace Server
             return passw;
         }
 
-        //Task
+        //Quiz
+        public void QuizQuestionsAdd(Quiz quiz)
+        {
+            connection.Open();
+            string sqlQuery = "";
+            ICollection<Question> questions = quiz.Question;
+
+            foreach(Question qest in questions)
+            {
+                sqlQuery = "INSERT INTO Questions (Text, Points, Image, TypeId, QuizId) " +
+                    "VALUES (@Text, @Points, @Image, @TypeId, @QuizId)";
+                connection.Execute(sqlQuery, qest);
+
+                sqlQuery = "SELECT * " +
+                           "FROM Questions " +
+                           "WHERE Text = @Text and QuizId = @QuizId and TypeId = @TypeId";
+                Question question = new Question(); 
+                question = connection.QueryFirstOrDefault<Question>(sqlQuery, qest);
+
+                if(question.SequenceTrue.Count != 0)
+                {
+                    sqlQuery = "INSERT INTO SequencesTrue (Answer1,Answer2,Answer3,Answer4,QuestionId) " +
+                        "VALUES (@Answer1,@Answer2,@Answer3,@Answer4,@QuestionId)";
+                    connection.Execute(sqlQuery, question.SequenceTrue.First());
+                }
+                else if (question.BoolTrue.Count != 0)
+                {
+                    sqlQuery = "INSERT INTO BoolsTrue (Answer, QuestionId) " +
+                        "VALUES (@Answer, @QuestionId)";
+                    connection.Execute(sqlQuery, question.BoolTrue.First());
+                }
+                else if (question.DefaultTrue.Count != 0)
+                {
+                    sqlQuery = "INSERT INTO DefaultsTrue (Answer, Variant1, Variant2, Variant3, Variant4, QuestionId) " +
+                        "VALUES (@Answer, @Variant1, @Variant2, @Variant3, @Variant4, @QuestionId)";
+                    connection.Execute(sqlQuery, question.DefaultTrue.First());
+                }
+            }
+            connection.Close();
+        }
+
+        public Quiz QuizInit(Quiz quiz)
+        {
+            //додаємо новий квіз і повертаємо обєкт з готовим айдішніком
+            connection.Open();
+            string sqlQuery = "INSERT INTO Quizes(Title, Description, Image, Date, StatusId, UserId) " +
+                              "VALUES (@Title, @Description, @Image, @Date, @StatusId, @UserId)";
+            connection.Execute(sqlQuery,quiz);
+            sqlQuery = "SELECT * " +
+                       "FROM Quizes " +
+                       "WHERE Title = @Title and Date = @Date";
+            quiz = connection.QueryFirstOrDefault<Quiz>(sqlQuery, quiz);
+            connection.Close();
+            return quiz;
+        }
+
+        public List<Quiz> QuizGetAll()
+        {
+            connection.Open();
+            List<Quiz> quizes = new List<Quiz>();
+            string sqlQuery = "SELECT * " +
+                              "FROM Quizes";
+            quizes.AddRange(connection.Query<Quiz>(sqlQuery));
+
+            foreach(Quiz quiz in quizes)
+            {
+                sqlQuery = "SELECT * " +
+                           "FROM Questions " +
+                           "WHERE QuizId = @Id";
+                List<Question> questions = new List<Question>();
+                questions.AddRange(connection.Query<Question>(sqlQuery, quiz));
+                foreach(Question question in questions)
+                {
+                    if(question.TypeId == 1)
+                    {
+                        sqlQuery = "SELECT * " +
+                                   "FROM SequencesTrue " +
+                                   "WHERE QuestionId = @Id";
+                        question.SequenceTrue.Add(connection.QueryFirstOrDefault<SequenceTrue>(sqlQuery, question));
+                    }
+                    else if (question.TypeId == 2)
+                    {
+                        sqlQuery = "SELECT * " +
+                                   "FROM BoolsTrue " + 
+                                   "WHERE QuestionId = @Id";
+                        question.BoolTrue.Add(connection.QueryFirstOrDefault<BoolTrue>(sqlQuery,question));
+                    }
+                    else if(question.TypeId == 3)
+                    {
+                        sqlQuery = "SELECT * " +
+                                   "FROM DefaultsTrue " +
+                                   "WHERE QuestionId = @Id";
+                        question.DefaultTrue.Add(connection.QueryFirstOrDefault<DefaultTrue>(sqlQuery, question));
+                    }
+                }
+                quiz.Question = questions;
+            }
+            connection.Close();
+            return quizes;
+        }
+
+        //Question
 
 
 
