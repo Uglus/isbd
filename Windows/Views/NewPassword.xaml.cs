@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,6 +20,11 @@ namespace Windows.Views
     /// </summary>
     public partial class NewPassword : Window
     {
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            Application.Current.Shutdown();
+        }
         public NewPassword()
         {
             InitializeComponent();
@@ -30,6 +36,11 @@ namespace Windows.Views
             {
                 this.DragMove();
             }
+        }
+
+        private void letsGoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
         }
     }
 }
