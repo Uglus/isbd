@@ -78,7 +78,7 @@ namespace Server
                 //Приписуємо цьому юзеру лінк
                 Random r = new Random();
                 int activateLink = r.Next(1000, 10000);
-                user.ActivateLink = activateLink;
+                user.ActivateLink = activateLink.ToString();
 
                // UserEdit(user);
 

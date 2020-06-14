@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Windows.ViewModels;
 
+using ClassLibrary;
+
 namespace Windows.Views
 {
     /// <summary>
@@ -21,14 +23,20 @@ namespace Windows.Views
     /// </summary>
     public partial class Menu_Main : Window
     {
+        public User userLogin { get; set; }
+
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
             Application.Current.Shutdown();
         }
-        public Menu_Main()
+
+        public Menu_Main(User user)
         {
             InitializeComponent();
+
+            userLogin = user;
+            LoadData(userLogin);
 
             var menuRegister_Quizz = new List<SubItem>();
             //menuRegister_Quizz.Add(new SubItem("Play quizz", new UserControlPlayQuizezz()));
@@ -60,7 +68,12 @@ namespace Windows.Views
             StackMenu.Children.Add(new UserControlMenuItem(item_Chats, this));
             StackMenu.Children.Add(new UserControlMenuItem(item_Friends, this));
             StackMenu.Children.Add(new UserControlMenuItem(item_News, this));
-            //StackMenu.Children.Add(new UserControlMenuItem(item_Profile, this));
+            //StackMenu.Children.Add(new UserControlMenuItem(item_Profile, this)); 
+        }
+
+        public void LoadData(User user)
+        {
+            labelNick.Content = user.Login;
         }
         
         internal void SwitchScreen(object sender)
@@ -82,24 +95,13 @@ namespace Windows.Views
             }
         }
 
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if(e.LeftButton == MouseButtonState.Pressed)
-            {
-                //UserControlSettngsUser user_settings = new UserControlSettngsUser();
-                //user_settings.ShowDialog();
-                Settngs_User settngs_User = new Settngs_User();
-                settngs_User.Owner = this;
-                //this.Hide();
-                settngs_User.ShowDialog();
-            }
-        }
-
-        private void Label_MouseDown(object sender, MouseButtonEventArgs e)
+        private void PanelProfile_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Settngs_User settngs_User = new Settngs_User();
+                //UserControlSettngsUser user_settings = new UserControlSettngsUser();
+                //user_settings.ShowDialog();
+                Settngs_User settngs_User = new Settngs_User(userLogin);
                 settngs_User.Owner = this;
                 //this.Hide();
                 settngs_User.ShowDialog();

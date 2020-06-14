@@ -30,8 +30,11 @@
                 <RowDefinition Height="326"/>
             </Grid.RowDefinitions>
             <Image Grid.Row="0" Source="../Images/brain_logo.png" Margin="0,0,0,63" Grid.RowSpan="2"/>
-            <Image x:Name="imgUser" Grid.Row="1" Source="../Images/user_logo.png" Margin="10,31,179,11" MouseDown="Image_MouseDown" />
-            <Label x:Name="labelNick" Grid.Row="1" Content="nickname" FontSize="16" Margin="70,31,92,11" Foreground="White" MouseDown="Label_MouseDown"/>
+            <StackPanel x:Name="panelProfile"  Grid.Row="1" MouseDown="PanelProfile_MouseDown">
+                <Image x:Name="imgUser" Grid.Row="1" Source="../Images/user_logo.png" Margin="10,0,179,11"  />
+                <Label x:Name="labelNick" Grid.Row="1" Content="nickname" FontSize="23" Margin="80,-60,10,0" Foreground="White"/>
+            </StackPanel>
+
             <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="2">
                 <StackPanel x:Name="StackMenu" Margin="10"/>
             </ScrollViewer>

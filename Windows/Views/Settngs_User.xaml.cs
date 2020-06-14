@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using ClassLibrary;
+
 namespace Windows.Views
 {
     /// <summary>
@@ -19,8 +21,20 @@ namespace Windows.Views
     /// </summary>
     public partial class Settngs_User : Window
     {
+        public User UserSet { get; set; }
+
         SolidColorBrush Off = new SolidColorBrush(Color.FromRgb(0, 0, 0));
         SolidColorBrush On = new SolidColorBrush(Color.FromRgb(240, 222, 45));
+
+        public Settngs_User(User user)
+        {
+            InitializeComponent();
+            UserSet = user;
+            UserNameTextBox.Text = user.Login;
+            boxNameUser.Text = user.Name;
+            boEmailUser.Text = user.Email;
+
+        }
 
         public Settngs_User()
         {

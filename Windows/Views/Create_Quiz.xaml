@@ -61,7 +61,7 @@
 
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                    <Button x:Name="btnCreateQuizOk" Margin="15,10" Content="OK!" FontSize="16" Width="194" />
+                    <Button x:Name="btnCreateQuestion" Margin="15,10" Content="OK!" FontSize="16" Width="194" Click="BtnCreateQuestion_Click" />
                     <Button x:Name="btnFormForward" Content="FORWARD" Margin="15,10" FontSize="16" Width="185"/>
                     <Button x:Name="btnFormBack" Content="BACK" Margin="15,10" FontSize="16" Width="185"/>
                 </StackPanel>

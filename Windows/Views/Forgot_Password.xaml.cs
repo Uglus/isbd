@@ -22,7 +22,7 @@ namespace Windows.Views
     /// </summary>
     public partial class Restore_Password : Window
     {
-        public User user = new User();
+        User user = new User();
         DbCommands commands = new DbCommands();
 
         protected override void OnClosed(EventArgs e)
@@ -75,11 +75,6 @@ namespace Windows.Views
             user = commands.SendAndReceiveUser(user);
 
             MessageBox.Show(user.ActivateLink.ToString());
-        }
-
-        private void SendToServer(User user)
-        {
-
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

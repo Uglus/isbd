@@ -1,4 +1,4 @@
-п»їusing System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,45 +7,43 @@ using System.Threading.Tasks;
 namespace ClassLibrary
 {
     [Serializable]
-    public class User
+    public partial class User
     {
+        public User()
+        {
+            this.UserFriendsFrom = new HashSet<UserFriends>();
+            this.UserFriendsTo = new HashSet<UserFriends>();
+            this.UserToChat = new HashSet<UserToChat>();
+            this.ChatMessage = new HashSet<ChatMessage>();
+            this.QuizApproved = new HashSet<QuizApproved>();
+            this.UserQuizResp = new HashSet<UserQuizResp>();
+            this.Quiz = new HashSet<Quiz>();
+            this.UserToAchievement = new HashSet<UserToAchievement>();
+            this.UserToSession = new HashSet<UserToSession>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public string Login { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public DateTime RegistrationDate { get; set; }
+        public System.DateTime RegistrationDate { get; set; }
+        public string ActivateLink { get; set; }
         public int RoleId { get; set; }
-        public int StatusId { get; set; } = 2;
-        public int ActivateLink { get; set; }
+        public int StatusId { get; set; }
 
-        public string FuncName { get; set; } = "";//Р”Р»СЏ РІРёР·РЅР°С‡РµРЅРЅСЏ СЃРµСЂРІРµСЂРѕРј, СЏРєСѓ С„СѓРЅРєС†С–СЋ СЋР·Р°С‚Рё
+        public string FuncName { get; set; }//Для визначення сервером, яку функцію юзати
 
-        public User()
-        {
-            Id = 0;
-            Name = "";
-            Login = "";
-            Email = "";
-            Password = "";
-            RegistrationDate = DateTime.MinValue;
-            RoleId = 1;
-            StatusId = 2;
-            ActivateLink = 0;
-            FuncName = "";
-        }
-
-        public User(int id, string name, string login,string email,string passw,DateTime regDate, int roleId, int statusId = 2, string funcName = "")
-        {
-            Id = id;
-            Name = name;
-            Login = login;
-            Email = email;
-            Password = passw;
-            RegistrationDate = regDate;
-            RoleId = roleId;
-            FuncName = funcName;
-            StatusId = statusId;
-        }
+        public virtual UserRole Role { get; set; }
+        public virtual UserStatus UserStatus { get; set; }
+        public virtual ICollection<UserFriends> UserFriendsFrom { get; set; }
+        public virtual ICollection<UserFriends> UserFriendsTo { get; set; }
+        public virtual ICollection<UserToChat> UserToChat { get; set; }
+        public virtual ICollection<ChatMessage> ChatMessage { get; set; }
+        public virtual ICollection<QuizApproved> QuizApproved { get; set; }
+        public virtual ICollection<UserQuizResp> UserQuizResp { get; set; }
+        public virtual ICollection<Quiz> Quiz { get; set; }
+        public virtual ICollection<UserToAchievement> UserToAchievement { get; set; }
+        public virtual ICollection<UserToSession> UserToSession { get; set; }
     }
 }
