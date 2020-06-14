@@ -9,19 +9,18 @@
         Title="Create_Quiz" Height="630" Width="800" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
         MouseDown="Window_MouseDown">
     <Grid>
-
-        <StackPanel Orientation="Horizontal" Margin="0,0,0,555" Background="#FF8C00">
-            <TextBox x:Name="boxScore" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Score: " Width="192" FontSize="18"/>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,555" Background="#F1CA2C">
+            <TextBox x:Name="boxScore" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Score: " Width="192" FontSize="18" />
             <!--<Button x:Name="btnFormCancel" Content="cancel" FontSize="16" Click="btnFormCancel_Click" Margin="0,22,0,21" Width="94"/>-->
         </StackPanel>
 
         <StackPanel>
-            <Label Content="Number of Queston: " FontSize="18" Margin="614,0,10,0" Height="72" />
+            <Label Content="Number of Question: " FontSize="18" Margin="582,0,10,0" Height="37" />
         </StackPanel>
 
         <!--<StackPanel Margin="50,10">-->
         <!--<Image Source="" Width="96" Height="96"/>-->
-        <Border Background="#ffcf40" Margin="10,101,10,10" CornerRadius="5">
+        <Border Background="#F1CA2C" Margin="10,101,10,10" CornerRadius="5">
             <StackPanel Margin="25">
                 <ComboBox x:Name="comboOfTypeQuestion" Margin="15" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Choose type of question: " Height="40">
                     <ComboBoxItem Content="True or False" />
@@ -29,7 +28,7 @@
                     <ComboBoxItem Content="Variant" />
                 </ComboBox>
 
-                <TextBox x:Name="boxTrueFalse" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Enter Question: "/>
+                <TextBox x:Name="boxTrueFalse" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Enter Question: " Margin="10,0,0,0"/>
                 <StackPanel Orientation="Vertical" Margin="0,0,577,0"  >
                     <RadioButton Content="True" Height="55" Width="48" />
                     <RadioButton Content="False" Height="19" Width="48" />
