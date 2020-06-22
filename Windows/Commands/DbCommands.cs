@@ -118,5 +118,23 @@ namespace Windows.Commands
             return quizes;
         }
 
+        public void SendUserSession(UserToSession uts)
+        {
+            try
+            {
+                TcpClient client = new TcpClient();
+                client.Connect(ip, port);
+
+                NetworkStream ns = client.GetStream();
+                BinaryFormatter bf = new BinaryFormatter();
+
+                bf.Serialize(ns, uts);
+
+                ns.Close();
+                client.Close();
+            }
+            catch (Exception err) { }
+        }
+
     }
 }

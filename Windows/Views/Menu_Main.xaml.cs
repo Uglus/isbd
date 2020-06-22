@@ -23,7 +23,7 @@ namespace Windows.Views
     /// </summary>
     public partial class Menu_Main : Window
     {
-        public User userLogin { get; set; }
+        public User userLogin { get; set; } = new User();
 
         protected override void OnClosed(EventArgs e)
         {
@@ -39,7 +39,7 @@ namespace Windows.Views
             LoadData(userLogin);
 
             var menuRegister_Quizz = new List<SubItem>();
-            menuRegister_Quizz.Add(new SubItem("Create session", new UserControlCreateSesson()));
+            menuRegister_Quizz.Add(new SubItem("Create session", new UserControlCreateSesson(user)));
             menuRegister_Quizz.Add(new SubItem("Create new quizz", new UserControlProviders(user)));
             menuRegister_Quizz.Add(new SubItem("Join session", new UserControlJoinSesson()));
 

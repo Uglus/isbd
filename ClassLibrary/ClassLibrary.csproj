@@ -46,6 +46,7 @@
     <Compile Include="Chat.cs" />
     <Compile Include="ChatMessage.cs" />
     <Compile Include="DefaultTrue.cs" />
+    <Compile Include="Leader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />
     <Compile Include="QuestionType.cs" />

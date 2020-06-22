@@ -56,13 +56,15 @@ namespace Windows.Views
 
         private void BtnCreateQuestion_Click(object sender, RoutedEventArgs e)
         {
+            int point = 0;
+            point = Convert.ToInt32(boxScore.Text);
             //Створення питання
             Question question = new Question()
             {
                 QuizId = QuizSet.Id,
                 TypeId = comboOfTypeQuestion.SelectedIndex + 1,
                 Text = boxTrueFalse.Text,
-                Points = boxScore.Text,
+                Points = point,
                 Image = ""
             };
 
@@ -76,9 +78,9 @@ namespace Windows.Views
                     Answer4 = boxSequence4.Text,
                 };
                 question.SequenceTrue.Add(sequence);
-
+                MessageBox.Show("SequenceTrue added");
             }
-            else if (panelBool.Visibility == Visibility.Visible)
+            if (panelBool.Visibility == Visibility.Visible)
             {
                 bool answer = true;
                 if (radioTrue.IsChecked == true)
@@ -88,8 +90,9 @@ namespace Windows.Views
                     Answer = answer
                 };
                 question.BoolTrue.Add(boolTrue);
+                MessageBox.Show("BoolTrue added");
             }
-            else if (panelVariant.Visibility == Visibility.Visible)
+            if (panelVariant.Visibility == Visibility.Visible)
             {
                 string answer = "";
                 if (radioVar1.IsChecked == true) { answer = boxVariant1.Text; }
@@ -106,6 +109,7 @@ namespace Windows.Views
                 };
 
                 question.DefaultTrue.Add(defaultTrue);
+                MessageBox.Show("DefaultTrue added");
             }
             QuizSet.Question.Add(question);
             this.Hide();

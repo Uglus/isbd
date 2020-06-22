@@ -23,9 +23,12 @@ namespace Windows.Views
     /// </summary>
     public partial class UserControlCreateSesson : UserControl
     {
-        public UserControlCreateSesson()
+        public User UserSet { get; set; }
+
+        public UserControlCreateSesson(User user)
         {
             InitializeComponent();
+            UserSet = user;
             LoadData();
         }
 
@@ -35,13 +38,18 @@ namespace Windows.Views
             Quiz quiz = new Quiz();
             quiz.FuncName = "QuizGetAll";
             List<Quiz> quizes = cmd.SendAndReceiveQuizList(quiz);
-            viewPlayQuizezz.ItemsSource = quizes;
             foreach (Quiz q in quizes.ToList())
             {
                 viewPlayQuizezz.Items.Add(q); 
             }
-            
         }
 
+        private void ViewPlayQuizezz_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Quiz quiz = (Quiz)viewPlayQuizezz.SelectedItem;
+            Lobby lobby = new Lobby(UserSet,quiz);
+            lobby.ShowDialog();
+
+        }
     }
 }
