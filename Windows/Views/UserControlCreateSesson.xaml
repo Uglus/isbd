@@ -10,7 +10,7 @@
     <Grid>
         <Border Height="450" Width="800" Margin="5"   Background="#FF9A90A6"  CornerRadius="20">
             <StackPanel Orientation="Horizontal">
-                <ListView x:Name="viewPlayQuizezz" Background="Aqua" Height="450" Width="800" ItemsSource="{Binding Title}" >
+                <ListView x:Name="viewPlayQuizezz" Background="Aqua" Height="450" Width="800" ItemsSource="{Binding Title}" SelectionChanged="ViewPlayQuizezz_SelectionChanged" >
                     <!--<Button x:Name="btnJoinToSession" Click="btnJoinToSession_Click" Content="Join" Height="66" Width="222" />-->
                 </ListView>
             </StackPanel>

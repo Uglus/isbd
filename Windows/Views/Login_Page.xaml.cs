@@ -29,7 +29,6 @@ namespace Windows.Views
        // public User user { get; set; }
         const string filePathUser = @"../../Data/User.bin";
 
-
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
@@ -97,7 +96,6 @@ namespace Windows.Views
                 BinaryFormatter bf = new BinaryFormatter();
                 bf.Serialize(SaveFileStream,user);
                 SaveFileStream.Close();
-
             });
         }
 
@@ -113,7 +111,6 @@ namespace Windows.Views
 
                 UserNameTextBox.Text = user.Login;
                 UserPasswordTextBlock.Password = user.Password;
-
                 //GoToMainWindow(user);
 
             }

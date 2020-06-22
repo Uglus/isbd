@@ -20,7 +20,7 @@
                     </ListView.View>
                 </ListView>
                 <StackPanel>
-                    <Button x:Name="btnStartGame" Content="START" FontSize="18" HorizontalAlignment="Stretch" Height="40" Margin="170,0,170,0"/>
+                    <Button x:Name="btnStartGame" Content="START" FontSize="18" HorizontalAlignment="Stretch" Height="40" Margin="170,0,170,0" Click="BtnStartGame_Click"/>
                 </StackPanel>
             </StackPanel>
         </Border>

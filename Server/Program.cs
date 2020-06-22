@@ -49,6 +49,7 @@ namespace Server
                 DataManager dm = new DataManager();
                 User userType = new User();
                 Quiz quizType = new Quiz();
+                UserToSession utsType = new UserToSession();
                 await Task.Run(() => {
                     while(true)
                     {
@@ -110,6 +111,10 @@ namespace Server
                                 List<Quiz> quizes = dm.QuizGetAll();
                                 bf.Serialize(ns, quizes);
                             }
+                        }
+                        else if(item.GetType() == utsType.GetType())
+                        {
+                            dm.UserSessionAdd((UserToSession)item);
                         }
 
 

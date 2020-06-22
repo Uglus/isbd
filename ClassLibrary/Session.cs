@@ -16,6 +16,8 @@ namespace ClassLibrary
         public System.DateTime Date { get; set; }
         public int StatusId { get; set; }
         public int QuizId { get; set; }
+
+        public string FuncName { get; set; }
     
         public virtual SessionStatus SessionStatus { get; set; }
         public virtual Quiz Quiz { get; set; }
